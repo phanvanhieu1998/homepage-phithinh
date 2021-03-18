@@ -5,14 +5,14 @@
 			 <el-carousel-item  v-for="(item, index) in  listSliders" :key="item.id">
 				 <div class="slider" v-if="index==0">
 					<div class="slider__content">
-						 <h2>Chào Hè</h2>
-					 	<span>Bán lẻ giảm tới 70% tại cửa hàng hoặc trực tuyến</span>
+						 <h2  data-aos="fade-up" data-aos-delay="400" data-aos-duration="2000">Chào Hè 2021</h2>
+					 	<span>Bán lẻ giảm tới 70% tại cửa hàng hoặc trực tuyến </span>
 					</div>
 				 </div>
 
 				  <div class="slider" v-if="index==1">
 					<div class="slider__content">
-						<span></span>
+						<h2>sdfjasdfkas</h2>
 					 	<span>kaka</span>
 					</div>
 				 </div>
@@ -82,9 +82,31 @@ export default {
 }
 .slider__content{
 	position: absolute;
-	
+	padding-left: 80px;
 	z-index: 1;
+	width: 500px;
+	height: 130px;
+
 
 }
 
+.slider__content:before, .slider__content:after {
+    content: '';
+    display: inline-block;
+    height: 1px;
+    width: 185px;
+    background-color: #444;
+}
+h2{
+	    font-family: "Playfair Display", serif;
+    font-size: 4rem;
+    font-weight: 700;
+	margin:   10px 0;
+}
+span{
+	 font-family: "Playfair Display", serif;
+	 font-size: 20px;
+
+	
+}
 </style>
