@@ -14,7 +14,7 @@
 				</el-col>
 
 				<el-col :span="12">
-					kaka
+					<div data-aos="flip-up">kaka</div>
 				</el-col>
 			</el-row>
 		</div>
@@ -37,8 +37,17 @@
 
 					<el-col :span="8">
 						<div class="header__wrap__cart">
-							<span>Cart</span>
+							<el-badge :value="lengthProduct"  class="item">
+								<el-dropdown trigger="click">
+									<span class="el-dropdown-link">
+										<el-button type="primary">Cart</el-button>
+									</span>
+									<Cart/>
+						
+								</el-dropdown>
+							</el-badge>
 						</div>
+						
 					</el-col>
 				</el-row>
 			</div>
@@ -75,14 +84,18 @@
   <el-menu-item index="4"  @click="handle('/contact')">Liên hệ </el-menu-item>
 
 </el-menu>
-
+		{{lengthProduct}}
 			</div>
 		</div>
 	</div>
 </template>
 
 <script>
-import {mapState} from 'vuex'
+import Cart from './Cart'
+import {mapState,mapGetters} from 'vuex'
+
+
+
 export default {
 	data(){
 		return{
@@ -114,6 +127,11 @@ export default {
 			input:''
 		}
 	},
+	components:{
+		Cart
+
+
+	},
 	methods:{
 		handle(path){
 			this.$router.push({path:path})
@@ -123,11 +141,16 @@ export default {
       	  this.$store.dispatch('categorys/listCategory')
 
       },
+	  	checkout(path){
+				this.$router.push({path:path})
+		}
 	},
 
 	 mounted(){
 		this.loadData()
 		this.listCategory
+		
+		
 	
     },
 	 computed:{
@@ -136,12 +159,20 @@ export default {
          
         
       }),
-     
+	  ...mapGetters({
+		  lengthProduct: 'detail/lengthProduct',
+		
+	  })
+	
 
+	 
+     
     }
 }
 </script>
 
 <style>
+
+
 
 </style>

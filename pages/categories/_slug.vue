@@ -1,15 +1,44 @@
 <template>
-  <div>
+  <div  v-loading="loading">
 	<BannerCategory :valueSlug="slug"/>
 	 <div class="container main">
 		 <div  v-for="item in productByCategory " :key="item.id" class="men_fashion">
 			 
 			<nuxt-link :to="{ path: `/detail/${item.slug}`}">
-			<img :src="item.images"></nuxt-link>
-			 <div class="price">
-				 <span>{{item.name}}</span><br>
-			 	 <span class="price__product"> {{item.price}}đ</span>
+			<img  :src="item.images"></nuxt-link>
+			<div v-if="item.discount !== null "  class="discount">
+				 <span v-if="item.discount == null">
+			 </span>
+			  <span style="color:red;font-weight:600" v-else>
+				 {{item.discount}}%
+				 <strong style="color:white;font-size:0.8rem">GIẢM</strong>
+			 </span>
+			</div>
+			<!-- <span style="padding:10px">{{item.name}}</span><br> -->
+			 <div class="name__price">
+				
+				<span >{{item.description}}</span><br>
+
 			 </div>
+			 <div class="price">
+					<span v-if="item.sale_price !== item.price" class="price__product"> {{item.price.toLocaleString('it-IT')}}đ</span>
+					<span  style="color: red;"  v-else>{{item.price.toLocaleString('it-IT')}}đ</span>
+					<span  style="color: red;"  v-if="item.sale_price !== item.price ">
+						{{item.sale_price.toLocaleString('it-IT')}}đ
+					</span>
+				</div>
+			<div>
+			
+			</div>
+			 <div class="hicc">
+				 <el-rate
+					v-model="value"
+					:texts="['oops','disappointed', 'normal', 'good', 'great']"
+					show-text>
+				</el-rate>
+			 </div>
+
+
 		 </div>
 
 	 </div>
@@ -21,14 +50,16 @@ import { mapState } from'vuex'
 export default {
 	data(){
 		return{
-		
+			value: null,
+			loading:false
 		}
 	},
 
 	methods:{
 		loadData(){
+			this.loading=true
 			this.$store.dispatch('productByCategory/productByCategory',this.slug).then((res)=>{
-			
+				this.loading=false
 			})
 		},
 	
@@ -37,6 +68,8 @@ export default {
 	mounted(){
 		this.loadData()
 		console.log(this.productByCategory)
+		
+	
 
 	},
 	computed:{
@@ -58,19 +91,25 @@ export default {
 <style>
 .main{
 display: flex;
-
+  flex-wrap: wrap;
 
 }
 .men_fashion {
-	
+
+	position: relative;
 	background-color: white;
 	 box-shadow: 0 0 0.4rem 0 #0b9471;
 	border-radius: .5rem;
-	height: 300px;
-	width: 200px;
-	margin: 20px;
-	cursor: pointer;
 	
+	width: 200px;
+	margin: 14px;
+	cursor: pointer;
+	transition: transform linear 0.1s;
+	will-change: transform;
+	
+}
+.men_fashion:hover{
+	transform: translateY(-1px);
 }
 .men_fashion img{
 	background-color: white;
@@ -79,11 +118,46 @@ display: flex;
 	display: block;
 	
 }
-.price{
+.name__price{
 	padding: 10px;
+	word-wrap: break-word;
+	 height: 25px;  
+	 overflow: hidden;
+	 display: block;
+	 display: -webkit-box;
+	 -webkit-box-orient:vertical;
+	 -webkit-line-clamp: 2;
+
+	
 }
 .price__product{
-	color: red;
+	
+	text-decoration-line:line-through
+}
+.discount{
+	background-color:rgba(255,212,36,.9) ;
+	text-align: center;
+	width: 40px;
+	height: 36px;
+	position: absolute;
+	right: 0;
+	top:0;
+	  border-top-right-radius: .5rem;
+	
+}
+.discount::after{
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: -5px;
+	border-width: 0 20px 6px;
+	border-style:solid;
+	border-color: transparent rgba(255,212,36,.9) transparent rgba(255,212,36,.9);
+}
+.price{
+	display: flex;
+	padding: 10px;
+
 }
 
 

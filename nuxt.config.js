@@ -18,12 +18,16 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
 	'element-ui/lib/theme-chalk/index.css',
-	'@/static/css/style.css'
+	'@/static/css/style.css',
+	'aos/dist/aos.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-	'@/plugins/element-ui'
+	'@/plugins/element-ui',
+	'@/plugins/js-cookie',
+	{ src: "@/plugins/aos", ssr:false}
+
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -44,5 +48,6 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+	  vendor:["aos"]
   }
 }
