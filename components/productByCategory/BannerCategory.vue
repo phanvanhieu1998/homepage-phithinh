@@ -1,7 +1,7 @@
 <template>
   <div>
 	  	 <div v-if="valueSlug == 'thoi-trang-nam'" class="hi" >
-		 	<h1>Thời Trang Nam</h1>
+		 	<h1 data-aos="fade-up" data-aos-duration="3000" >Thời Trang Nam</h1>
 	 </div>
 
 	  <div v-if="valueSlug == 'thoi-trang-nu'" class="hi" >

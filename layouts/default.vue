@@ -2,11 +2,13 @@
   <div>
 	  <Header/>
      <Nuxt /> 
+	 <Footer/>
   </div>
 </template>
 
 <script>
 import Header from '~/components/header/ContenTopbar'
+import Footer from '~/components/footer'
 export default {
 	data() {
 		return{
@@ -14,7 +16,8 @@ export default {
 		}
 	},
 	components:{
-		Header
+		Header,
+		Footer
 	}
 }
 </script>

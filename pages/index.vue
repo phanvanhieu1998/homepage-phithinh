@@ -5,6 +5,7 @@
 	 </div> -->
 	 <div>
 		 <Sliders/>
+		 <BestSellers/>
 	 </div>
   </div>
 </template>
@@ -12,6 +13,7 @@
 <script>
 // import ContentTopbar from '~/components/header/ContenTopbar'
 import Sliders from '~/components/between/Sliders'
+import BestSellers from '~/components/between/BestSellers'
 export default {
 	data(){
 		return{
@@ -20,7 +22,8 @@ export default {
 	},
 	components:{
 		// ContentTopbar,
-		Sliders
+		Sliders,
+		BestSellers
 	}
 }
 </script>

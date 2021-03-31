@@ -2,7 +2,7 @@
   <div  v-loading="loading">
 	<BannerCategory :valueSlug="slug"/>
 	 <div class="container main">
-		 <div  v-for="item in productByCategory " :key="item.id" class="men_fashion">
+		 <div  data-aos="fade-up-right" data-aos-duration="3000" v-for="item in productByCategory " :key="item.id" class="men_fashion">
 			 
 			<nuxt-link :to="{ path: `/detail/${item.slug}`}">
 			<img  :src="item.images"></nuxt-link>
@@ -68,6 +68,7 @@ export default {
 	mounted(){
 		this.loadData()
 		console.log(this.productByCategory)
+		console.log(this.slug) 
 		
 	
 

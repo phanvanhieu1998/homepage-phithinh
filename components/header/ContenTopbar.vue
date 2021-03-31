@@ -30,7 +30,7 @@
 
 					<el-col :span="8">
 						<div >
-							<h1>Phí Thịnh Shop</h1>
+							<h1 data-aos="fade-down" data-aos-delay="400" data-aos-duration="3000" >Phí Thịnh Shop</h1>
 						</div>
 
 					</el-col>
@@ -84,7 +84,7 @@
   <el-menu-item index="4"  @click="handle('/contact')">Liên hệ </el-menu-item>
 
 </el-menu>
-		{{lengthProduct}}
+		
 			</div>
 		</div>
 	</div>

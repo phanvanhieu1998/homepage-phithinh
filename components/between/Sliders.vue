@@ -1,29 +1,24 @@
 <template>
   <div class="container">
 	  		
-		<el-carousel :interval="2000" arrow="always" height="500px">
+		<el-carousel :interval="3000" arrow="always" height="500px">
 			 <el-carousel-item  v-for="(item, index) in  listSliders" :key="item.id">
 				 <div class="slider" v-if="index==0">
 					<div class="slider__content">
-						 <h2  data-aos="fade-up" data-aos-delay="400" data-aos-duration="2000">Chào Hè 2021</h2>
-					 	<span>Bán lẻ giảm tới 70% tại cửa hàng hoặc trực tuyến </span>
+						 <h2  data-aos="fade-down"  data-aos-duration="3000" data-aos-easing="linear">Chào Hè 2021</h2>
+					 	<p data-aos="fade-up"  data-aos-duration="3000">Bán lẻ giảm tới 70% tại cửa hàng hoặc trực tuyến </p>
+						  <el-button data-aos="zoom-in"  data-aos-duration="3000" style="margin-top:40px" type="primary" round>Mua Ngay</el-button>
 					</div>
 				 </div>
 
 				  <div class="slider" v-if="index==1">
 					<div class="slider__content">
-						<h2>sdfjasdfkas</h2>
-					 	<span>kaka</span>
+						<span data-aos="fade-up"  data-aos-duration="3000" style="margin-left:10px">Cá Tính, Trẻ Trung 2021</span>
+					 	<h2>Chào Hè 2021</h2>
+						  <el-button data-aos="fade-down"  data-aos-duration="3000" style="margin-top:40px" type="primary" round>Mua Ngay</el-button>
 					</div>
 				 </div>
 
-				  <div class="slider" v-if="index==2">
-					<div class="slider__content">
-						 <h3>sdfsdf</h3>
-					 	<span>kaka</span>
-					</div>
-				 </div>
-				
 			   <el-image 
 					style="width: 100%; height: 100%"
 					:src="item.images" 
@@ -90,13 +85,13 @@ export default {
 
 }
 
-.slider__content:before, .slider__content:after {
+/* .slider__content:before, .slider__content:after {
     content: '';
     display: inline-block;
     height: 1px;
     width: 185px;
     background-color: #444;
-}
+} */
 h2{
 	    font-family: "Playfair Display", serif;
     font-size: 4rem;

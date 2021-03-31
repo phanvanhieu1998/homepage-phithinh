@@ -4,7 +4,7 @@
 		  <!-- {{detail}} -->
 		  
 		   <div>
-			   <img :src="detail.images">
+			   <img   :src="detail.images">
 		   </div>
 		   
 		   <div>
