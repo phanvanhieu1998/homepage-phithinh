@@ -93,7 +93,8 @@ export default {
 .main{
 display: flex;
   flex-wrap: wrap;
-
+  margin-top: 40px;
+margin-bottom: 40px;
 }
 .men_fashion {
 
@@ -139,7 +140,7 @@ display: flex;
 	background-color:rgba(255,212,36,.9) ;
 	text-align: center;
 	width: 40px;
-	height: 36px;
+	height: 42px;
 	position: absolute;
 	right: 0;
 	top:0;

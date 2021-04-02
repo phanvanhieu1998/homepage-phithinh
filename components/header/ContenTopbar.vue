@@ -74,8 +74,8 @@
     <template  slot="title"  >Danh mục sản phẩm</template>
     <!-- <el-menu-item index="2-1" @click="handle('/men_fashion')">Thời trang nam</el-menu-item>
     <el-menu-item index="2-2" @click="handle('/women_fashion')" >Thời trang nữ</el-menu-item> -->
-		<el-menu-item  v-for="(item, index) in listCategory" :key="index">
-			<nuxt-link :to="{ path: `/categories/${item.slug}`}">{{item.name}}</nuxt-link>
+		<el-menu-item index="2" v-for="(item, index) in listCategory" :key="index">
+			<nuxt-link  :to="{ path: `/categories/${item.slug}`}">{{item.name}}</nuxt-link>
 		</el-menu-item>
 
  
