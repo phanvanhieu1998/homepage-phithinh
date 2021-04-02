@@ -55,9 +55,7 @@ export default {
 			listSliders:state => state.sliders.listSliders
 		}),
 
-		sliderWithText(){
-			this.$store
-		}
+	
 	},
 	mounted(){
 		this.loadData()

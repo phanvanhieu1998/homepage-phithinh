@@ -9,8 +9,7 @@ export const state = () => ({
 	limit:10,
 	page:1,
 	cart: [],
-	
-	
+
  })
 
 
@@ -46,11 +45,16 @@ export const state = () => ({
 			colors,
 			sizes
 		}) 
-
+		let cart =JSON.stringify(state.cart)
+		localStorage.setItem('cart',cart)
+		console.log('qqqqqq')
+		console.log(cart)
+		console.log('qqqqqq')
+		
 	},
-	// SET_CART_FROM_COOKIE:(state,data) =>{
-	// 	state.cart = data
-	// },
+	  SET_CART_FROM_LOCAL:(state,data) =>{
+	  	state.cart = data
+	 },
 
 	SET_DELETEPRODUCT:(state,id) =>{
 		let index = state.cart.findIndex(item => item.product.id === id)
@@ -85,10 +89,9 @@ export const state = () => ({
 	addToCart({commit},{product,quantity,colors,sizes}){
 
 	
-
-		Cookies.set('product',  {product,quantity,colors,sizes}, { expires: 7 })
 		commit('ADD_TO_CART',{product,quantity,colors,sizes})
-		commit('SET_CART_FROM_COOKIE')
+		// let x = JSON.stringify({product,quantity,colors,sizes})
+		// localStorage.setItem('product',x)
 	
 	},
 	deleteProduct({commit},item){

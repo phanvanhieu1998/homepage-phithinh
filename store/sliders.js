@@ -17,7 +17,7 @@ export const state = () => ({
 				page:state.page,
 				limit:state.limit
 			  }
-			console.log(data)
+		
 			axios.get('https://api.meiboutiques.work/v1/sliders',data)
 			.then((res) =>{
 				commit('SET_LISTSLIDERS',res.data.data)

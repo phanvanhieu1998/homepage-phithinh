@@ -9,20 +9,20 @@
 			<div class="content__contact__left">
 				<p class="send">Gửi tin nhắn</p>
 			
-						<el-input type="password" v-model="ruleForm.fullName" autocomplete="off"
+						<el-input type="text" v-model="ruleForm.fullName" autocomplete="off"
 						placeholder="Nhập họ tên của bạn"></el-input>
 				
 						<div class="icon__contact" >
 							<i class="el-icon-user"></i>
 						</div>
-						<el-input type="password" v-model="ruleForm.phoneNumber" autocomplete="off"
+						<el-input type="text" v-model="ruleForm.phoneNumber" autocomplete="off"
 						placeholder="Nhập số điện thoại của bạn"></el-input>
 
 							<div class="icon__contact1" >
 							<i class="el-icon-phone-outline"></i>
 							</div>
 				
-						<el-input v-model.number="ruleForm.email"
+						<el-input type="email" v-model.number="ruleForm.email"
 						placeholder="Nhập địa chỉ email của bạn"></el-input>
 						<div class="icon__contact2" >
 							<i class="el-icon-edit-outline"></i>
@@ -35,16 +35,35 @@
 					
 
 			
-						<el-button type="primary" >Gửi</el-button>
+						<el-button style="margin: 20px 0" type="primary" >Gửi</el-button>
 		
 		
 			</div>
 			<div class="content__contact__right">
+				<div>
+					<h5>Địa chỉ</h5>
+					<p>
+						Tổ 2, Tân Thịnh, TP Thái Nguyên
+					</p>
+				</div>
+					
+				<div>
+					<h5>Hotline</h5>
+					<p style="color:blue">
+						0378888918
+					</p>
+				</div>
 
+				<div>
+					<h5>Email</h5>
+					<a href="#" style="color:blue">
+						phanvanhieu0708@gmail.com
+					</a>
+				</div>
 			</div>
 		</div>
 	</div>
-	
+
 </div>
 </template>
 
@@ -52,7 +71,7 @@
 export default {
 	data(){
 		return{
-			 ruleForm: {
+			ruleForm: {
           fullName: '',
           phoneNumber: '',
           email: '',
@@ -76,8 +95,11 @@ export default {
 h2{
 	font-size: 50px;
 	color: white;
-
-	margin-top: 50px;
+																																																			
+	
+}
+p{
+	color: #888;
 }
 .content__contact{
 	display: flex;
@@ -86,16 +108,17 @@ h2{
 .content__contact__left{
 	position: relative;
 	width: 50%;
-	height: 400px;
+	height: auto;
 	border: 1px solid #e6e6e6;
 	padding: 30px ;
 
 	
 }
 .content__contact__right{
+		padding: 30px ;
 	width: 50%;
-	height: 400px;
-	    border: 1px solid #e6e6e6;
+	height: 460px;
+	 border: 1px solid #e6e6e6;
 }
 .send{
 	font-size: 30px;
@@ -115,14 +138,14 @@ h2{
 }
 .icon__contact1{
 	position: absolute;
-	top:38%;
+	top:34%;
 	left: 40px;
 	z-index: 1;
 		font-size: 20px;
 }
 .icon__contact2{
 	position: absolute;
-	top:55%;
+	top:49.5%;
 	left: 40px;
 	z-index: 1;
 	font-size: 20px;

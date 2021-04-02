@@ -1,20 +1,20 @@
 <template>
-	<div class="container">
-		<div class="footer">
+	<div class="footer" >
+		<div class="container" >
 			<el-row>
-				<el-col  :span="6" :lg="6">
+				<el-col  :span="8" :lg="8">
 					<h3>Danh mục sản phẩm</h3>
 					<ul>
 					
-						<li v-for="(item, index) in listCategory " :key="index">
+						<li style="padding:5px 0" v-for="(item, index) in listCategory " :key="index">
 							<nuxt-link :to="{ path: `/categories/${item.slug}`}">{{item.name}}</nuxt-link>
 						</li>
 					</ul>
 				</el-col>
-				<el-col :span="6" :lg="6">
-					<h3>Trợ Gíup</h3>
+				<el-col :span="8" :lg="8">
+					<h3 style="margin:20px 0">Trợ Gíup</h3>
 					<ul>
-						<li v-for="link in menu_links"
+						<li style="padding:5px 0" v-for="link in menu_links"
 						:key="link.slug">
 						<NuxtLink :to="link.slug" v-if="link.router">{{link.name}}</NuxtLink>
 						<a :href="link.slug" target="_blank" v-else>
@@ -24,12 +24,23 @@
 						</li>
 					</ul>
 				</el-col>
-				<el-col :span="6" :lg="6">
+				<el-col :span="8" :lg="8">
 					<h3>Liên Hệ</h3>
+				
+						
+						<!-- <p style="margin:20px 0" v-for="item in menu_contact"
+						:key="item.slug"
+						:style="{color: color}"
+						>
+						{{item.name}}</p>
+				 -->
+				 <p style="margin:20px 0">Email:<span style="color:blue">phanvanhieu0708@gmail.com</span></p>
+ 				<p style="margin:20px 0"> Hotline:<span style="color:blue">0378888918</span></p>
+				  <p style="margin:20px 0">Địa chỉ: Tổ 2,Tân Thịnh,TP Thái Nguyên</p>
+
+				
 				</el-col>
-				<el-col :span="6" :lg="6">
-					<h3>Đăng Kí Tin Tức</h3>
-				</el-col>
+			
 			</el-row>
 		</div>
 	</div>
@@ -40,15 +51,18 @@ import {mapState} from 'vuex'
 export default {
 	data(){
 		return{
+			color:'red',
 			  menu_links: [
 			 	{slug: '/shopping-guide', name: 'Hướng dẫn mua hàng', custom_class: '', router: true},
 			 	{slug: '/delivery-policy', name: 'Chính sách giao hàng', custom_class: '', router: true},
 				 {slug: '/refund-policy', name: 'Chính sách đổi trả', custom_class: '', router: true},
 				 {slug: 'policies-and-terms', name: 'Chính sách & Điều khoản', custom_class: '', router: true},
-			
- 
-       
      		 ],
+			//   menu_contact:[
+			// 	  { name: 'Email:phanvanhieu0708@gmail.com', custom_class: '', router: true},
+			//  	{ name: 'Hotline:0378888918', custom_class: '', router: true},
+			// 	 { name: 'Địa chỉ: Tổ 2,Tân Thịnh,TP Thái Nguyên', custom_class: '', router: true},
+			//   ]
 		}
 	},
 	computed:{
@@ -69,8 +83,21 @@ export default {
 <style>
 .footer{
 	width: 100%;
-	height: 400px;
+	height: 200px;
 	background-color: black;
 	color: white;;
+}
+.footer a{
+	    color: #b2b2b2;
+}
+p{
+	    color: #b2b2b2;
+cursor: pointer;
+}
+p:hover{
+	color:  #717fe0;
+}
+.footer a:hover{
+	    color:  #717fe0;
 }
 </style>

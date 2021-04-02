@@ -15,7 +15,7 @@
 			 </span>
 			</div>
 			<!-- <span style="padding:10px">{{item.name}}</span><br> -->
-			 <div class="name__price">
+			 <div class="description1">
 				
 				<span >{{item.description}}</span><br>
 
@@ -102,8 +102,8 @@ display: flex;
 	 box-shadow: 0 0 0.4rem 0 #0b9471;
 	border-radius: .5rem;
 	
-	width: 200px;
-	margin: 14px;
+	width: 205px;
+	margin: 10px;
 	cursor: pointer;
 	transition: transform linear 0.1s;
 	will-change: transform;
@@ -119,10 +119,10 @@ display: flex;
 	display: block;
 	
 }
-.name__price{
-	padding: 10px;
+.description1{
+	padding: 10px 10px 0;
 	word-wrap: break-word;
-	 height: 25px;  
+	 height: 42px;  
 	 overflow: hidden;
 	 display: block;
 	 display: -webkit-box;
@@ -157,7 +157,7 @@ display: flex;
 }
 .price{
 	display: flex;
-	padding: 10px;
+
 
 }
 
