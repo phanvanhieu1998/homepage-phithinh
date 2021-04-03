@@ -3,7 +3,7 @@
 	  <el-row style="margin-top: 40px;" :gutter="20">
 		<el-col :span="16">
 			<div class="content__left">
-					<h2>CHÍNH SÁCH GIAO HÀNG</h2>
+					<h2 style="font-size:15px">CHÍNH SÁCH GIAO HÀNG</h2>
 				
 				<h4>
 					1. Quý khách hàng vui lòng thanh toán mọi chi phí liên quan tới tiền vận chuyển theo cách thức sau:
@@ -64,9 +64,7 @@ export default {
 </script>
 
 <style>
-h2{
-	margin: 0;
-}
+
 p{
 	margin: 40px 0;
 }
@@ -74,6 +72,9 @@ p{
 .content__left{
 	
 	padding-right: 30px;
+}
+.content__left h2{
+	margin: 0;
 }
 .image__guide{
 	position: relative;

@@ -3,9 +3,9 @@
 	  <el-row style="margin-top: 40px;" :gutter="20">
 		<el-col :span="16">
 			<div class="content__left">
-				<h2>CHÍNH SÁCH VÀ ĐIỀU KHOẢN</h2>
+				<h2 style="font-size:15px">CHÍNH SÁCH VÀ ĐIỀU KHOẢN</h2>
 				<h4>
-					1. Phí Thịnh Shop LÀ WEBSITE CỦA THƯƠNG HIỆU THỜI TRANG MAY MẶC
+					1. Phí Thịnh Shop là website của thương hiệu may mặc
 				</h4>
 				<p>
 					- Phí Thịnh Shop  là kênh mua sắm và hỗ trợ đắc lực công tác chăm sóc Khách Hàng của Thương hiệu thời trang may mặc.
@@ -16,10 +16,10 @@
 				</p>
 
 				<h4>
-					2. CHÍNH SÁCH BẢO MẬT VÀ CHIA SẺ THÔNG TIN
+					2. Chính sách bảo mật và chia sẻ thông tin
 				</h4>
 				<h4>
-					2.1 MỤC ĐÍCH ÁP DỤNG
+					2.1 Mục đích áp dụng
 				</h4>
 				<p>
 					- Chính sách bảo mật và chia sẻ thông tin này (“Chính Sách”) nhằm đảm bảo an toàn thông tin liên quan đến các tổ chức,
@@ -60,10 +60,10 @@ export default {
 h2{
 	margin: 0;
 }
-p{
+.content__left p{
 	margin: 40px 0;
+	line-height: 30px;
 }
-
 .content__left{
 	
 	padding-right: 30px;

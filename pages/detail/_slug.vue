@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-	  <div class="detail__product">
+	  <div v-loading="loading"  class="detail__product">
 		  <!-- {{detail}} -->
 		  
 		   <div>
@@ -8,11 +8,11 @@
 		   </div>
 		   
 		   <div>
-			   	<h2>{{detail.name}}</h2>
+			   	<p>{{detail.description}}</p>
 				<!-- <span v-if="discount == null">{{detail.price}}đ</span> -->
-				<span  >{{detail.sale_price}}</span>
+				<span  v-if="detail.sale_price" >{{detail.sale_price.toLocaleString('it-IT')}}đ</span>
 			
-				<p>{{detail.description}}</p>
+		
 				 <!-- <p style="color:red">Thương Hiệu: {{detail.brand.name}}</p>  -->
 				<el-form :model="dataProduct" :rules="rules" ref="dataProduct">
 					<el-form-item label="Sizes" prop="value">
@@ -62,7 +62,7 @@ export default {
 			value: '',
 			value1:''
 		},
-	
+		loading:false,
 			 rules: {
           value: [
             { required: true, message: 'Vui lòng chọn size', trigger: 'blur' },
@@ -78,9 +78,10 @@ export default {
 	},
 	methods:{
 		loadData(){
-			
+			this.loading = true
 			this.$store.dispatch('detail/detail',this.slug).then((res)=>{
 				//  console.log(res)
+				this.loading = false
 			})
 		},
 		addToCart(formName){

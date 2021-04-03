@@ -3,7 +3,9 @@
 	  <el-row style="margin-top: 40px;" :gutter="20">
 		<el-col :span="16">
 			<div class="content__left">
-					<h2>CÁCH MUA HÀNG</h2>
+					<div class="support__shopping">
+							<h2 style="font-size:15px">CÁCH MUA HÀNG</h2>
+					</div>
 				<p>
 					Mua sắm tại Phí Thịnh Shop thật dễ dàng. Quý khách chỉ cần làm theo các bước sau:
 				</p>
@@ -53,13 +55,13 @@ export default {
 </script>
 
 <style>
-h2{
+.suppoert__shopping h2{
+	
 	margin: 0;
 }
-p{
+.content__left p{
 	margin: 40px 0;
 }
-
 .content__left{
 	
 	padding-right: 30px;
@@ -81,5 +83,8 @@ p{
     border: 3px solid #ccc;
 	    bottom: -21px;
     left: -21px;
+}
+.content__left h4{
+	font-weight: 300;
 }
 </style>

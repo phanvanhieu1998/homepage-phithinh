@@ -10,7 +10,7 @@
 					<h3>Phí Thịnh Shop</h3>
 				<p style="line-height: 1.666667;">
 					Phí Thịnh Shop là thương hiệu thời trang Việt Nam với mong muốn đem lại vẻ đẹp hiện đại và sự tự tin cho khách hàng, 
-					thông qua các dòng sản phẩm thời trang thể hiện cá tính và xu hướng. Một trong những "tôn chỉ" về thiết kế của Mei Boutiques chính là sự đa dạng, 
+					thông qua các dòng sản phẩm thời trang thể hiện cá tính và xu hướng. Một trong những "tôn chỉ" về thiết kế của Phí Thịnh Shop chính là sự đa dạng, 
 					với mong muốn mang đến cho người mặc những sản phẩm phù hợp nhất với ngoại hình và quan trọng hơn cả là cá tính của chính mình.
 				</p>
 					
@@ -114,12 +114,12 @@ export default {
 	font-size: 50px;
 	color: white;
 }
-p{
+
+.content__left p{
 	margin: 40px 0;
-	    font-family: Verdana;
+	   font-family: Verdana;
 		color: #888;
 }
-
 .content__left{
 	
 	padding-right: 30px;

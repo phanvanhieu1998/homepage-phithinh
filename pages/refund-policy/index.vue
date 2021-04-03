@@ -3,15 +3,15 @@
 	  <el-row style="margin-top: 40px;" :gutter="20">
 		<el-col :span="16">
 			<div class="content__left">
-					<h2>CHÍNH SÁCH ĐỔI TRẢ</h2>
+					<h2 style="font-size:15px">CHÍNH SÁCH ĐỔI TRẢ</h2>
 					<h4>
-					1. THỜI GIAN ĐỔI TRẢ
+					1. Thời gian đổi trả
 					</h4>
 				<p>
 					Trong vòng 15 ngày kể từ ngày mua sản phẩm (theo ngày trên hóa đơn) - Đối với các KH đặt mua ONLINE tính từ ngày KH nhận được sản phẩm.
 				</p>
 				<h4>
-					2. ĐIỀU KIỆN ĐỔI TRẢ
+					2. Điều kiện đổi trả
 				</h4>
 					
 				<p>
@@ -27,7 +27,7 @@
 				</p>
 
 				<h4>
-					3. CÁC TRƯỜNG HỢP TỪ CHỐI ĐỔI TRẢ
+					3.Các trường hợp từ chối đổi trả
 				</h4>
 				<p>
 				- Thời gian mua hàng quá 15 ngày.
@@ -72,16 +72,19 @@ export default {
 h2{
 	margin: 0;
 }
-p{
+
+.content__left p{
 	margin: 40px 0;
 }
-
 .content__left{
 	
 	padding-right: 30px;
 }
 .image__guide{
 	position: relative;
+}
+.content__left h4{
+	line-height: 20px;
 }
 .image__guide img{
 	width: 100%;

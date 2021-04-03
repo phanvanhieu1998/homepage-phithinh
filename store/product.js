@@ -18,9 +18,10 @@ export const state = () => ({
 			// 	limit:state.limit
 			//   }
 		
-			axios.get('https://api.meiboutiques.work/v1/admin/products')
+			axios.get('https://api.meiboutiques.work/v1/products')
 			.then((res) =>{
-				commit('SET_LISTPRODUCT',res.data.result)
+				commit('SET_LISTPRODUCT',res.data.data.result)
+				
 			
 				resolve(res)
 				

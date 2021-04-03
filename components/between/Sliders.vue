@@ -102,4 +102,7 @@ span{
 
 	
 }
+.slider__content p{
+	color: black;
+}
 </style>

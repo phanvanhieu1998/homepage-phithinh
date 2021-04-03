@@ -24,7 +24,8 @@
 				<el-row>
 					<el-col :span="8">
 						<div class="header__wrap__search">
-							<el-input style="width:80%" placeholder="Search Product..." v-model="input"></el-input>
+							<el-input @keyup.native.enter="submit"  style="width:80%" placeholder="Search Product..." v-model="input"></el-input>
+							
 						</div>
 					</el-col>
 
@@ -143,12 +144,18 @@ export default {
       },
 	  	checkout(path){
 				this.$router.push({path:path})
+		},
+		submit(){
+			console.log('ccccccc')
 		}
+
 	},
 
 	 mounted(){
 		this.loadData()
 		this.listCategory
+		
+		
 		
 		
 	

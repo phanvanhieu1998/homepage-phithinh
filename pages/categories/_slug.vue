@@ -17,7 +17,7 @@
 			<!-- <span style="padding:10px">{{item.name}}</span><br> -->
 			 <div class="description1">
 				
-				<span >{{item.description}}</span><br>
+				<span >{{item.name}}</span><br>
 
 			 </div>
 			 <div class="price">
