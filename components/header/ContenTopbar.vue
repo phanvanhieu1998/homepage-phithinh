@@ -1,93 +1,64 @@
 <template>
-	<div>
-		<div class="top_bar_line ">
-			<el-row class="container" >
-				<el-col :span="12" >
-					<div class="top_bar_line_left">
-						<ul class="menu">
-							<li class="menu__left"  v-for="(item, index) in menuTop" :key="index">
-								<a href="#">{{item.myAccount}}</a>
-								
-							</li>
-						</ul>
+	
+	<div class="header__wrap">
+		<el-row>
+			<el-col :span="4">
+				<span style="color:red">logo</span>
+			</el-col>
+			<el-col :span="10">
+				<div class="nav-wrap">
+
+					<el-menu default-active="1" class="el-menu-demo" mode="horizontal"   background-color="#000" 
+						text-color="#fff"  active-text-color="red">
+						<el-menu-item index="1" @click="handle('/')">Trang chủ</el-menu-item>
+						<el-submenu  index="2">
+							<template  slot="title"  >Danh mục sản phẩm</template>
+								<el-menu-item index="2" v-for="(item, index) in listCategory" :key="index">
+									<nuxt-link style="color:#fff"  :to="{ path: `/categories/${item.slug}`}">{{item.name}}</nuxt-link>
+								</el-menu-item>
+
+						
+						</el-submenu>
+						<el-menu-item index="3" @click="handle('/introduce')" >Giới thiệu</el-menu-item>
+						<el-menu-item index="4"  @click="handle('/contact')">Liên hệ </el-menu-item>
+
+						</el-menu>
+			
+					
+				</div>
+			</el-col>
+
+			<el-col :span="6">
+				
+				<div class="search">
+					<div>
+					<el-input class="inputSearch" @keyup.native.enter="submit" size="mini"  placeholder="Search...." v-model="input">
+					
+					</el-input>
 					</div>
-				</el-col>
+					<div class="icon__search">
+						<i  class="el-icon-search"></i>
+					</div>
+				</div>
+			
+			</el-col>
 
-				<el-col :span="12">
-					<div data-aos="flip-up">kaka</div>
-				</el-col>
-			</el-row>
-		</div>
-
-		<div class="container">
-			<div class="header__wrap">
-				<el-row>
-					<el-col :span="8">
-						<div class="header__wrap__search">
-							<el-input @keyup.native.enter="submit"  style="width:80%" placeholder="Search Product..." v-model="input"></el-input>
-							
-						</div>
-					</el-col>
-
-					<el-col :span="8">
-						<div >
-							<h1 data-aos="fade-down" data-aos-delay="400" data-aos-duration="3000" >Phí Thịnh Shop</h1>
-						</div>
-
-					</el-col>
-
-					<el-col :span="8">
-						<div class="header__wrap__cart">
-							<el-badge :value="lengthProduct"  class="item">
-								<el-dropdown trigger="click">
-									<span class="el-dropdown-link">
-										<el-button type="primary">Cart</el-button>
-									</span>
-									<Cart/>
-						
-								</el-dropdown>
-							</el-badge>
-						</div>
-						
-					</el-col>
-				</el-row>
-			</div>
-
-			<div class="nav-wrap">
-
-
-				<!-- <ul class="nav__wrap__menu">
-					<li 
-						:class="link.custom_class" 
-						v-for="link in menu_links" 
-						:key="link.slug">
-						<NuxtLink :to="link.slug" v-if="link.router">{{link.name}}</NuxtLink>
-						<a :href="link.slug" target="_blank" v-else>
-						{{link.name}}
-						</a>
-
-					</li>
-				</ul>  -->
-
-					<el-menu default-active="1" class="el-menu-demo" mode="horizontal" >
-  <el-menu-item index="1" @click="handle('/')">Trang chủ</el-menu-item>
-  <el-submenu  index="2">
-    <template  slot="title"  >Danh mục sản phẩm</template>
-    <!-- <el-menu-item index="2-1" @click="handle('/men_fashion')">Thời trang nam</el-menu-item>
-    <el-menu-item index="2-2" @click="handle('/women_fashion')" >Thời trang nữ</el-menu-item> -->
-		<el-menu-item index="2" v-for="(item, index) in listCategory" :key="index">
-			<nuxt-link  :to="{ path: `/categories/${item.slug}`}">{{item.name}}</nuxt-link>
-		</el-menu-item>
-
- 
-  </el-submenu>
-  <el-menu-item index="3" @click="handle('/introduce')" >Giới thiệu</el-menu-item>
-  <el-menu-item index="4"  @click="handle('/contact')">Liên hệ </el-menu-item>
-
-</el-menu>
-		
-			</div>
-		</div>
+			<el-col :span="4">
+			
+					<div class="header__wrap__cart">
+					<el-badge :value="lengthProduct"  class="item">
+						<el-dropdown trigger="click">
+							<span class="el-dropdown-link">
+								<el-button type="primary">Cart</el-button>
+							</span>
+							<Cart/>
+				
+						</el-dropdown>
+					</el-badge>
+				</div> 
+				
+			</el-col>
+		</el-row>
 	</div>
 </template>
 
@@ -100,20 +71,7 @@ import {mapState,mapGetters} from 'vuex'
 export default {
 	data(){
 		return{
-			menuTop:[
-				{
-					myAccount:'My Account'
-				},
-				{
-					myAccount:'About Us'
-				},
-				{
-					myAccount:'Contact'
-				},
-				{
-					myAccount:'Phone: 0378888918'
-				}
-			],
+		
 			 menu_links: [
 				{slug: '/', name: 'Trang chủ', custom_class: '', router: true},
 				{slug: '', name: 'Danh mục sản phẩm', custom_class: '', router: true,
@@ -145,8 +103,17 @@ export default {
 	  	checkout(path){
 				this.$router.push({path:path})
 		},
+		loadData1(){
+ 			this.$store.dispatch('search/listSearch',{
+				 limit:10,
+				 q:this.input
+			 })
+		},
 		submit(){
-			console.log('ccccccc')
+			// this.$store.commit('search/SET_SEARCH_TEXT',this.input)
+			this.loadData1()
+			this.$router.push('/search')
+		
 		}
 
 	},
@@ -154,9 +121,6 @@ export default {
 	 mounted(){
 		this.loadData()
 		this.listCategory
-		
-		
-		
 		
 	
     },
@@ -166,6 +130,7 @@ export default {
          
         
       }),
+	
 	  ...mapGetters({
 		  lengthProduct: 'detail/lengthProduct',
 		
@@ -180,6 +145,34 @@ export default {
 
 <style>
 
+.el-menu--horizontal {
+border-bottom: solid #000 !important;
+}
+.header__wrap{
+	background-color:#000 ;
+} 
 
-
+.inputSearch .el-input__inner{
+	border: 0;
+	 border-bottom: 2px solid #e5e5e5;
+	 background-color: #000 !important;
+	 border-radius:0 ;
+	padding: 0  30px 0 0;
+	 color: #fff;
+	 
+	 
+} 
+.inputSearch{
+	line-height: 63px;
+}
+.search{
+	position: relative;
+	width: 80%;
+}
+.icon__search{
+	position: absolute;
+	right: 0;
+	top: 20px;
+	color: #fff;
+}
 </style>

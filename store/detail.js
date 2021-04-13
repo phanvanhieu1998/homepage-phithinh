@@ -47,9 +47,7 @@ export const state = () => ({
 		}) 
 		let cart =JSON.stringify(state.cart)
 		localStorage.setItem('cart',cart)
-		console.log('qqqqqq')
-		console.log(cart)
-		console.log('qqqqqq')
+	
 		
 	},
 	  SET_CART_FROM_LOCAL:(state,data) =>{

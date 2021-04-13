@@ -1,11 +1,14 @@
 <template>
   <div  v-loading="loading">
-	<BannerCategory :valueSlug="slug"/>
-	 <div class="container main" v-if="productByCategory">
-		 <div  data-aos="fade-up-right" data-aos-duration="3000" v-for="item in productByCategory " :key="item.id" class="men_fashion">
+	    <span v-if="listSearch.length == 0">
+				 <p style=" color:#000; text-align:center"> không tìm thấy: {{search_text}}</p>
+			</span>
+	
+	 <div class="container main">
+		 <div  data-aos="fade-up-right" data-aos-duration="3000" v-for="item in listSearch " :key="item.id" class="men_fashion" >
 			 
 			<nuxt-link :to="{ path: `/detail/${item.slug}`}">
-			<img  :src="item.images[0]"></nuxt-link>
+			<img  :src="item.images"></nuxt-link>
 			<div v-if="item.discount !== null "  class="discount">
 				 <span v-if="item.discount == null">
 			 </span>
@@ -18,7 +21,7 @@
 			 <div class="description1">
 				
 				<span >{{item.name}}</span><br>
-
+				
 			 </div>
 			 <div class="price">
 					<span v-if="item.sale_price !== item.price" class="price__product"> {{item.price.toLocaleString('it-IT')}}đ</span>
@@ -47,47 +50,30 @@
   </div>
 </template>
 <script>
-import BannerCategory from '~/components/productByCategory/BannerCategory'
+
 import { mapState } from'vuex'
 export default {
 	data(){
 		return{
 			value: null,
 			loading:false,
-			value: 3.7
+			value: 3.7,
+			
 		}
 	},
 
-	methods:{
-		loadData(){
-			this.loading=true
-			this.$store.dispatch('productByCategory/productByCategory',this.slug).then((res)=>{
-				this.loading=false
-			})
-		},
-	
-	},
-
-	mounted(){
-		this.loadData()
-		console.log(this.productByCategory)
-		console.log(this.slug) 
 		
-	
 
-	},
 	computed:{
 		...mapState({
-			productByCategory: state => state.productByCategory.productByCategory
+			listSearch:state => state.search.listSearch
 		}),
-		slug(){
-			return this.$route.params.slug
-		},
+			...mapState({
+			search_text:state => state.search.search_text
+		}),
 		
 	},
-	components:{
-		BannerCategory
-	}
+
 }
 
 </script>
@@ -98,19 +84,21 @@ display: flex;
   flex-wrap: wrap;
   margin-top: 40px;
 margin-bottom: 40px;
+height: auto;
 }
 .men_fashion {
 
 	position: relative;
 	background-color: white;
-	margin: 17px;
+
+	
 	
 	width: 250px;
 	
+	margin: 17px;
 	cursor: pointer;
 	transition: transform linear 0.1s;
 	will-change: transform;
-	
 }
 .discount1{
 
@@ -124,20 +112,20 @@ margin-bottom: 40px;
 .men_fashion img{
 	background-color: white;
 	width: 100%;
-
+	margin: 0;
 	display: block;
+	height: 350px;
 	
 }
 .description1{
 	padding: 10px 10px 0;
 	word-wrap: break-word;
-	 height: 23px;  
+	 height: 42px;  
 	 overflow: hidden;
 	 display: block;
 	 display: -webkit-box;
 	 -webkit-box-orient:vertical;
 	 -webkit-line-clamp: 2;
-	 text-align: center;
 
 	
 }
@@ -153,7 +141,7 @@ margin-bottom: 40px;
 	position: absolute;
 	right: 0;
 	top:0;
-	 
+	  border-top-right-radius: .5rem;
 	
 }
 .discount::after{
@@ -167,7 +155,6 @@ margin-bottom: 40px;
 }
 .price{
 	display: flex;
-	text-align: center;
 
 
 }

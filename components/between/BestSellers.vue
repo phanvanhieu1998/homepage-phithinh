@@ -5,7 +5,7 @@
 	 <el-tabs v-model="activeName" >
     <el-tab-pane   label="Sản Phẩm Mới Nhất" name="first">
 				  	 <div class="container main">
-		 <div  data-aos="fade-up-right" data-aos-duration="3000" v-for="item in productNew " :key="item.id" class="men_fashion">
+		 <div  data-aos="fade-up" data-aos-duration="3000" v-for="item in productNew " :key="item.id" class="men_fashion">
 			 
 			<nuxt-link :to="{ path: `/detail/${item.slug}`}">
 			<img  :src="item.images"></nuxt-link>
@@ -14,7 +14,7 @@
 			 </span>
 			  <span style="color:red;font-weight:600" v-else>
 				 {{item.discount}}%
-				 <strong style="color:white;font-size:0.8rem">GIẢM</strong>
+				 <strong class="discount1" style="color:white;font-size:0.8rem">GIẢM</strong>
 			 </span>
 			</div>
 			<!-- <span style="padding:10px">{{item.name}}</span><br> -->
@@ -25,7 +25,7 @@
 			 </div>
 			 <div class="price">
 					<span v-if="item.sale_price !== item.price" class="price__product"> {{item.price.toLocaleString('it-IT')}}đ</span>
-					<span  style="color: red;"  v-else>{{item.price}}đ</span>
+					<span  style="color: red;"  v-else>{{item.sale_price.toLocaleString('it-IT')}}đ</span>
 					<span  style="color: red;"  v-if="item.sale_price !== item.price ">
 						{{item.sale_price.toLocaleString('it-IT')}}đ
 					</span>
@@ -44,7 +44,7 @@
     <el-tab-pane label="Sản Phẩm Bán Chạy Nhất" name="second">
 
 						  	 <div class="container main">
-		 <div  data-aos="fade-up-right" data-aos-duration="3000" v-for="item in productBestseller " :key="item.id" class="men_fashion">
+		 <div  data-aos="fade-up" data-aos-duration="3000" v-for="item in productBestseller " :key="item.id" class="men_fashion">
 			 
 			<nuxt-link :to="{ path: `/detail/${item.slug}`}">
 			<img  :src="item.images"></nuxt-link>
@@ -53,7 +53,7 @@
 			 </span>
 			  <span style="color:red;font-weight:600" v-else>
 				 {{item.discount}}%
-				 <strong style="color:white;font-size:0.8rem">GIẢM</strong>
+				 <strong class="discount1" style="color:white;font-size:0.8rem">GIẢM</strong>
 			 </span>
 			</div>
 			<!-- <span style="padding:10px">{{item.name}}</span><br> -->
@@ -63,10 +63,10 @@
 
 			 </div>
 			 <div class="price">
-					<span v-if="item.sale_price !== item.price" class="price__product"> {{item.price}}đ</span>
-					<span  style="color: red;"  v-else>{{item.price}}đ</span>
+					<span v-if="item.sale_price !== item.price" class="price__product"> {{item.price.toLocaleString('it-IT')}}đ</span>
+					<span  style="color: red;"  v-else>{{item.sale_price.toLocaleString('it-IT')}}đ</span>
 					<span  style="color: red;"  v-if="item.sale_price !== item.price ">
-						{{item.sale_price}}đ
+						{{item.sale_price.toLocaleString('it-IT')}}đ
 					</span>
 				</div>
 			<div>
@@ -132,12 +132,18 @@ margin-bottom: 40px;
     justify-content: center;
     margin-top: 30px;
 }
+.discount1{
+
+	position: absolute;
+	top:20px;
+	left: 0px;
+}
 .men_fashion {
 
 	position: relative;
 	background-color: white;
-	 box-shadow: 0 0 0.4rem 0 #0b9471;
-	border-radius: .5rem;
+
+	
 	
 	width: 205px;
 	margin: 10px;
@@ -151,7 +157,7 @@ margin-bottom: 40px;
 }
 .men_fashion img{
 	background-color: white;
-	width: 90%;
+	width: 100%;
 	margin: 10px;
 	display: block;
 	
@@ -159,7 +165,7 @@ margin-bottom: 40px;
 .description1{
 	padding: 10px 10px 0;
 	word-wrap: break-word;
-	 height: 42px;  
+	 height: 23px;  
 	 overflow: hidden;
 	 display: block;
 	 display: -webkit-box;
@@ -176,11 +182,11 @@ margin-bottom: 40px;
 	background-color:rgba(255,212,36,.9) ;
 	text-align: center;
 	width: 40px;
-	height: 42px;
+	height: 36px;
 	position: absolute;
 	right: 0;
 	top:0;
-	  border-top-right-radius: .5rem;
+
 	
 }
 .discount::after{

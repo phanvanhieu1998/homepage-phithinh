@@ -40,7 +40,7 @@
 
 <script>
 import {mapState,mapGetters} from 'vuex'
-import Cookies from 'js-cookie'
+
 export default {
 	data(){
 		return{
@@ -51,11 +51,11 @@ export default {
 		deleteProduct(item){
 			this.$store.dispatch('detail/deleteProduct',item)
 		},
-		local(){
-		 localStorage.getItem('cart')
+		// local(){
+		//  localStorage.getItem('cart')
 
-		  this.$store.commit('detail/SET_CART_FROM_LOCAL',JSON.parse(localStorage.getItem('cart')))
-		}
+		//   this.$store.commit('detail/SET_CART_FROM_LOCAL',JSON.parse(localStorage.getItem('cart')))
+		// }
 	},
 	mounted(){
 		// this.local()

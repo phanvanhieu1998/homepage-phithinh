@@ -65,7 +65,7 @@ export default {
 
 <style>
 
-p{
+.content_left p{
 	margin: 40px 0;
 }
 

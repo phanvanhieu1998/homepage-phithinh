@@ -25,18 +25,9 @@
 					</ul>
 				</el-col>
 				<el-col :span="8" :lg="8">
-					<h3>Liên Hệ</h3>
-				
-						
-						<!-- <p style="margin:20px 0" v-for="item in menu_contact"
-						:key="item.slug"
-						:style="{color: color}"
-						>
-						{{item.name}}</p>
-				 -->
-				 <p style="margin:20px 0">Email:<span style="color:blue">phanvanhieu0708@gmail.com</span></p>
- 				<p style="margin:20px 0"> Hotline:<span style="color:blue">0378888918</span></p>
-				  <p style="margin:20px 0">Địa chỉ: Tổ 2,Tân Thịnh,TP Thái Nguyên</p>
+					<div class="footer_contact">
+
+					</div>
 
 				
 				</el-col>
@@ -90,11 +81,11 @@ export default {
 .footer a{
 	    color: #b2b2b2;
 }
-p{
+.footer_contact p{
 	    color: #b2b2b2;
 cursor: pointer;
 }
-p:hover{
+.footer_contact p:hover{
 	color:  #717fe0;
 }
 .footer a:hover{

@@ -1,16 +1,17 @@
 <template>
   <div class="container">
+	 
 	  <el-table
     :data="cart"
     style="width: 100%">
     <el-table-column
 	label="Sản Phẩm"
      >
-      <template slot-scope="scope">
+      <template slot-scope="scope " v-if="cart">
       
         <el-image
       style="width: 100px; height: 100px"
-      :src="scope.row.product.images">
+      :src="scope.row.product.images[0]">
       </el-image>
 		
       </template>
@@ -53,7 +54,7 @@
         <el-button
           size="mini"
           type="danger"
-          @click="handleDelete(scope.$index, scope.row)">Delete</el-button>
+          @click="handleDelete(scope.row)">Delete</el-button>
       </template>
     </el-table-column>
 
@@ -87,10 +88,20 @@ export default {
 	  })
 	},
 	methods:{
+		handleDelete(row){
+			this.$store.dispatch('detail/deleteProduct',row).then((res) =>{
+				
+			})
+		},
+			local(){
+		 localStorage.getItem('cart')
+
+		  this.$store.commit('detail/SET_CART_FROM_LOCAL',JSON.parse(localStorage.getItem('cart')))
+		}
 
 	},
 	mounted(){
-
+		this.local()
 	}
 
 }

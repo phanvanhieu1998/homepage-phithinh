@@ -23,5 +23,9 @@ export default {
 }
 </script>
 <style>
-
+body{
+	box-sizing: border-box;
+	font-family:  Verdana;
+	
+}
 </style>

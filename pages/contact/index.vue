@@ -9,13 +9,13 @@
 			<div class="content__contact__left">
 				<p class="send">Gửi tin nhắn</p>
 			
-						<el-input type="text" v-model="ruleForm.fullName" autocomplete="off"
+						<el-input type="text" v-model="ruleForm.name" autocomplete="off"
 						placeholder="Nhập họ tên của bạn"></el-input>
 				
 						<div class="icon__contact" >
 							<i class="el-icon-user"></i>
 						</div>
-						<el-input type="text" v-model="ruleForm.phoneNumber" autocomplete="off"
+						<el-input type="text" v-model="ruleForm.phone" autocomplete="off"
 						placeholder="Nhập số điện thoại của bạn"></el-input>
 
 							<div class="icon__contact1" >
@@ -29,18 +29,18 @@
 							</div>
 
 				
-						<el-input  type="textarea" v-model="ruleForm.problems"
+						<el-input  type="textarea" v-model="ruleForm.message"
 						 :rows="4"
 						placeholder="bạn gặp vấn đề gì?"></el-input>
 					
 
 			
-						<el-button style="margin: 20px 0" type="primary" >Gửi</el-button>
+						<el-button style="margin: 20px 0" @click="handleSubmit" type="primary" >Gửi</el-button>
 		
 		
 			</div>
 			<div class="content__contact__right">
-				<div>
+				<div class="hihi">
 					<h5>Địa chỉ</h5>
 					<p>
 						Tổ 2, Tân Thịnh, TP Thái Nguyên
@@ -72,14 +72,31 @@ export default {
 	data(){
 		return{
 			ruleForm: {
-          fullName: '',
-          phoneNumber: '',
+          name: '',
+          phone: '',
           email: '',
-		  problems:''
+		  message:''
         },
 
 		}
 	},
+	methods:{
+		handleSubmit(){
+			this.$store.dispatch('contact/handleProblem',this.ruleForm).then((res)=>{
+				this.open()
+			})
+		},
+			   open() {
+        this.$notify.success({
+          title: 'Success',
+          message: 'Gửi yêu cầu thành công ',
+          offset: 100
+        });
+      }
+	},
+	mounted(){
+
+	}
 	// layout:'public'
 }
 </script>
@@ -98,7 +115,7 @@ h2{
 																																																			
 	
 }
-p{
+.hihi p{
 	color: #888;
 }
 .content__contact{
@@ -126,7 +143,7 @@ p{
 	margin: 0;
 
 }
-.el-input__inner{
+.content__contact__left .el-input__inner{
 	margin: 20px 0;
 	padding: 0 40px;
 }
