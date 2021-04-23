@@ -1,86 +1,71 @@
 <template>
-  <div class="container">
-	 
+  	<div class="container">
+		  <!-- <p v-text="'haha'"></p>
+		  <p v-html="'<h1>sdfsdfsd</h1>'"></p> -->
 	  	<div class="allProduct">
-			  <div class="all__product__hot__trend">
-				  <span>Hot Trend</span>
-			  </div>
-			  <h5>Tất cả sản phẩm</h5>
-			  
-			  
-			  <div>
-				  <div>
-
-				  </div>
-
-				  <div>
-					  
-				  </div>
-
-				  <div>
-					  
-				  </div>
-			  </div>
-		  </div>
-
-			  <div class="show__pagination" >
-			  <span style="margin-left:14px">
-				  hiển thị {{(totalData == 0) ? 0 : ((limit * (page - 1)) + 1)}} - {{ (limit * page) > totalData ? totalData : (limit * page) }}  của {{totalData}} sản phẩm
-			  </span>
-			 
-		   		<el-pagination  
-					background  layout="prev, next" @current-change="set_page" :page-size="limit" :total="totalData">
-				</el-pagination>   
-		
-		  </div>
-	
-	 	  	 <div class="container main">
-		 <div  data-aos="zoom-in" data-aos-duration="3000" v-for="item in listProduct " :key="item.id" class="men_fashion">
-			 
-			<nuxt-link :to="{ path: `/detail/${item.slug}`}">
-			<img  :src="item.images"></nuxt-link>
-			<div v-if="item.discount !== null "  class="discount">
-				 <span v-if="item.discount == null">
-			 </span>
-			  <span style="color:red;font-weight:600" v-else>
-				 {{item.discount}}%
-				 <strong class="discount1" style="color:white;font-size:0.8rem">GIẢM</strong>
-			 </span>
+			<div class="all__product__hot__trend">
+				<span>Hot Trend</span>
 			</div>
-			<!-- <span style="padding:10px">{{item.name}}</span><br> -->
-			 <div class="description1">
-				
-				<span >{{item.name}}</span><br>
+			
+			<div style="margin-top:20px">
+				<h5 style="font-size:30px">Tất cả sản phẩm</h5>
+			</div>
+		</div>
 
-			 </div>
-			 <div class="price">
-					<span v-if="item.sale_price !== item.price" class="price__product"> {{item.price.toLocaleString('it-IT')}}đ</span>
-					<span  style="color: red;"  v-else>{{item.sale_price.toLocaleString('it-IT')}}đ</span>
-					<span  style="color: red;"  v-if="item.sale_price !== item.price ">
-						{{item.sale_price.toLocaleString('it-IT')}}đ
+		<div class="show__pagination" >
+			<span style="margin-left:14px;line-height: 32px;">
+				hiển thị {{(totalData == 0) ? 0 : ((limit * (page - 1)) + 1)}} - {{ (limit * page) > totalData ? totalData : (limit * page) }}  của {{totalData}} sản phẩm
+			</span>
+			
+			<el-pagination  
+				background  layout="prev, next" @current-change="set_page" :page-size="limit" :total="totalData">
+			</el-pagination>   
+
+		</div>
+	
+	 	<div class="container main">
+			<div  data-aos="zoom-in" data-aos-duration="3000" v-for="item in listProduct " :key="item.id" class="men_fashion">
+				
+				<nuxt-link :to="{ path: `/detail/${item.slug}`}">
+				<img  :src="item.images"></nuxt-link>
+				<div v-if="item.discount !== null "  class="discount">
+						<span v-if="item.discount == null">
+					</span>
+					<span style="color:red;font-weight:600" v-else>
+						{{item.discount}}%
+						<strong class="discount1" style="color:white;font-size:0.8rem">GIẢM</strong>
 					</span>
 				</div>
-			<div>
-			
-			</div>
-			 <div class="hicc">
-				 <el-rate
-					v-model="value"
-					:texts="['oops','disappointed', 'normal', 'good', 'great']"
-					show-text>
-				</el-rate>
-			 </div>
-		
+	
+				<div class="description1">
+					
+					<span >{{item.name}}</span><br>
 
-		 </div>
-	 </div>
+				</div>
+				<div class="price">
+						<span v-if="item.sale_price !== item.price" class="price__product"> {{item.price.toLocaleString('it-IT')}}đ</span>
+						<span  style="color: red;"  v-else>{{item.sale_price.toLocaleString('it-IT')}}đ</span>
+						<span  style="color: red;"  v-if="item.sale_price !== item.price ">
+							{{item.sale_price.toLocaleString('it-IT')}}đ
+						</span>
+				</div>
+
+				<div class="hicc">
+					<el-rate
+						v-model="value"
+						:texts="['oops','disappointed', 'normal', 'good', 'great']"
+						show-text>
+					</el-rate>
+				</div>
+	
+			</div>
+		</div>
 
 		 <el-pagination :hide-on-single-page="true"  class="pagination"  :current-page="page"
 			
 			background layout="prev, pager, next" @current-change="set_page" :page-size="limit" :total="totalData">
 		</el-pagination>   
-
-
+	
   </div>
   
 </template>
@@ -130,6 +115,11 @@ display: flex;
   flex-wrap: wrap;
   margin-top: 40px;
 margin-bottom: 40px;
+justify-content: center;
+}
+.show__pagination{
+	display: flex;
+	justify-content: center;
 }
 .men_fashion {
 
@@ -146,10 +136,7 @@ margin-bottom: 40px;
 	will-change: transform;
 	
 }
-.allProduct h5{
-	font-size: 30px;
-	text-align: center;
-}
+
 .men_fashion:hover{
 	transform: translateY(-1px);
 }
@@ -217,8 +204,10 @@ margin-bottom: 40px;
 .allProduct{
 	position: relative;
 	display: flex;
+	margin-top: 50px;
 	justify-content: center;
-	margin: 50px 0 0;
+
+	
 }
 .all__product__hot__trend{
 	display: flex;

@@ -1,52 +1,68 @@
 import axios from 'axios'
 
-
-
-
-// import { getCartCookie } from '@/utils/cookie'
 export const state = () => ({
 	detail:[],
 	limit:10,
 	page:1,
 	cart: [],
-
+	
  })
 
 
 
  export const getters = {
 	lengthProduct : state =>{
+		
 		return state.cart.length
+		
 		
 	},
 
 	cartTotalPrice : state =>{
-		let total = 0;
-		state.cart.forEach(item =>{
+		
+			let total = 0;
+			state.cart.forEach(item =>{
 			total += item.product.sale_price * item.quantity
 		})
 		return total
+		
 	}
  }
  export const mutations = {
 	SET_DETAIL:(state,data) => state.detail = data,
+	SET_QUANTITY:(state,data) => {
+		 let changeQuantity = state.cart.find(item =>{
+		 	return item.product.id === data.id &&  item.product.sizes === data.sizes &&  item.product.colors === data.colors
+		 })
+		 if(changeQuantity){
+		 	changeQuantity.quantity = data.quantity
+		 }
+	
+		 let cart = JSON.stringify(state.cart)
+		 	localStorage.setItem('cart',cart)
+	},
 	ADD_TO_CART:(state,{product,quantity,colors,sizes}) =>{
-		let productInCart = state.cart.find(item =>{
-			return item.product.id === product.id && item.colors === colors && item.sizes === sizes
-		})
+	
+			let productInCart = state.cart.find(item =>{
+				return item.product.id === product.id && item.colors === colors && item.sizes === sizes
+			})
+			
+			if(productInCart){
+				productInCart.quantity +=quantity
+				
+			}
+			else{
+				state.cart.push({
+					product,
+					quantity,
+					colors,
+					sizes
+				}) 
+			}
+			
+			let cart = JSON.stringify(state.cart)
+			localStorage.setItem('cart',cart)
 		
-		if(productInCart){
-			productInCart.quantity +=quantity
-			return
-		}
-		state.cart.push({
-			product,
-			quantity,
-			colors,
-			sizes
-		}) 
-		let cart =JSON.stringify(state.cart)
-		localStorage.setItem('cart',cart)
 	
 		
 	},
@@ -58,6 +74,8 @@ export const state = () => ({
 		let index = state.cart.findIndex(item => item.product.id === id)
 		state.cart.splice(index,1)
 		
+		let cart = JSON.stringify(state.cart)
+		localStorage.setItem('cart',cart)
 	},
 
 
@@ -93,6 +111,7 @@ export const state = () => ({
 	
 	},
 	deleteProduct({commit},item){
+
 		
 		commit('SET_DELETEPRODUCT',item.product.id)
 		

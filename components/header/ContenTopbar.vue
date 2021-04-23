@@ -1,63 +1,57 @@
 <template>
-	
 	<div class="header__wrap">
-		<el-row>
-			<el-col :span="4">
-				<span style="color:red">logo</span>
-			</el-col>
-			<el-col :span="10">
-				<div class="nav-wrap">
 
-					<el-menu default-active="1" class="el-menu-demo" mode="horizontal"   background-color="#000" 
-						text-color="#fff"  active-text-color="red">
+		<el-row>
+			<el-col :span="2">
+				<div class="logo">
+					<img src="~/static/images/logo2.jpg">
+				</div>
+			</el-col>
+			
+			<el-col :span="14">
+				<div class="nav-wrap">
+					<el-menu default-active="1" class="el-menu-demo" mode="horizontal"   background-color="#000" text-color="#fff"  active-text-color="red">
 						<el-menu-item index="1" @click="handle('/')">Trang chủ</el-menu-item>
 						<el-submenu  index="2">
 							<template  slot="title"  >Danh mục sản phẩm</template>
 								<el-menu-item index="2" v-for="(item, index) in listCategory" :key="index">
 									<nuxt-link style="color:#fff"  :to="{ path: `/categories/${item.slug}`}">{{item.name}}</nuxt-link>
 								</el-menu-item>
-
-						
 						</el-submenu>
 						<el-menu-item index="3" @click="handle('/introduce')" >Giới thiệu</el-menu-item>
 						<el-menu-item index="4"  @click="handle('/contact')">Liên hệ </el-menu-item>
-
-						</el-menu>
-			
-					
+					</el-menu>
 				</div>
 			</el-col>
 
 			<el-col :span="6">
-				
 				<div class="search">
 					<div>
-					<el-input class="inputSearch" @keyup.native.enter="submit" size="mini"  placeholder="Search...." v-model="input">
-					
-					</el-input>
+						<el-input class="inputSearch" @keyup.native.enter="submit" size="mini"  placeholder="Search...." v-model="input">
+						</el-input>
 					</div>
+
 					<div class="icon__search">
 						<i  class="el-icon-search"></i>
 					</div>
 				</div>
-			
 			</el-col>
 
-			<el-col :span="4">
-			
-					<div class="header__wrap__cart">
-					<el-badge :value="lengthProduct"  class="item">
+			<el-col :span="2">
+				
+
+				<div  class="header__wrap__cart">
+					<el-badge  :value="lengthProduct"   class="item"> 
 						<el-dropdown trigger="click">
 							<span class="el-dropdown-link">
 								<el-button type="primary">Cart</el-button>
 							</span>
-							<Cart/>
-				
+							<Cart />
 						</el-dropdown>
-					</el-badge>
+					</el-badge> 
 				</div> 
-				
 			</el-col>
+
 		</el-row>
 	</div>
 </template>
@@ -65,9 +59,6 @@
 <script>
 import Cart from './Cart'
 import {mapState,mapGetters} from 'vuex'
-
-
-
 export default {
 	data(){
 		return{
@@ -110,7 +101,7 @@ export default {
 			 })
 		},
 		submit(){
-			// this.$store.commit('search/SET_SEARCH_TEXT',this.input)
+			 this.$store.commit('search/SET_SEARCH_TEXT',this.input)
 			this.loadData1()
 			this.$router.push('/search')
 		
@@ -136,15 +127,29 @@ export default {
 		
 	  })
 	
-
-	 
-     
     }
 }
 </script>
 
 <style>
+.header__wrap__cart .el-button--primary{
+	background-color: black;
+	border: 2px solid white;
+}
+.el-badge__content.is-fixed {
+	top:14px;
+	right: 30px;
+}
+.header__wrap__cart{
 
+	line-height:63px ;
+	display: flex;
+
+	align-items: center;
+}
+.header__wrap__cart .el-dropdown {
+	margin-right: 20px;
+}
 .el-menu--horizontal {
 border-bottom: solid #000 !important;
 }
@@ -174,5 +179,9 @@ border-bottom: solid #000 !important;
 	right: 0;
 	top: 20px;
 	color: #fff;
+}
+.logo img{
+	width: 70px;
+	margin-left: 10px;
 }
 </style>

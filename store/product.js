@@ -3,7 +3,7 @@ import axios from 'axios'
 export const state = () => ({
 	listProduct:[],
 
-	search_text:'',
+
 	totalData:0,
 	limit:8,
 	page:1,
@@ -14,6 +14,7 @@ export const state = () => ({
 	SET_LISTPRODUCT:(state,data) => state.listProduct = data,
 	SET_TOTALDATA:(state,data) => state.totalData = data,
 	SET_PAGE:(state, page) => state.page = page,
+	
   }
 
   export const getters = {

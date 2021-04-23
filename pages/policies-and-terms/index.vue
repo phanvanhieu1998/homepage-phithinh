@@ -1,7 +1,7 @@
 <template>
   <div class="container">
 	  <el-row style="margin-top: 40px;" :gutter="20">
-		<el-col :span="16">
+		<el-col :span="24" :md="16">
 			<div class="content__left">
 				<h2 style="font-size:15px">CHÍNH SÁCH VÀ ĐIỀU KHOẢN</h2>
 				<h4>
@@ -41,7 +41,7 @@
 
 		</el-col>
 
-		<el-col :span="8">
+		<el-col :span="24" :md="8">
 			<div class="image__guide">
 				<img src="~/static/images/policies_terms.png">
 			</div>
@@ -85,5 +85,6 @@ h2{
     border: 3px solid #ccc;
 	    bottom: -21px;
     left: -21px;
+	
 }
 </style>

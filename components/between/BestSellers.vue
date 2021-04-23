@@ -1,90 +1,70 @@
 <template>
-  <div class="container">
-	
+  	<div class="container">
+	 	<el-tabs v-model="activeName" >
+			<el-tab-pane   label="Sản Phẩm Mới Nhất" name="first">
+				<div class="container main">
+					<div  data-aos="fade-up" data-aos-duration="3000" v-for="item in productNew " :key="item.id" class="men_fashion">
+						<nuxt-link :to="{ path: `/detail/${item.slug}`}">
+							<img  :src="item.images">
+						</nuxt-link>
+						<div v-if="item.discount !== null "  class="discount">
+							<span v-if="item.discount == null">
+							</span>
+							<span style="color:red;font-weight:600" v-else>
+								{{item.discount}}%
+								<strong class="discount1" style="color:white;font-size:0.8rem">GIẢM</strong>
+							</span>
+						</div>
+					
+						<div class="description1">
+							
+							<span >{{item.name}}</span><br>
 
-	 <el-tabs v-model="activeName" >
-    <el-tab-pane   label="Sản Phẩm Mới Nhất" name="first">
-				  	 <div class="container main">
-		 <div  data-aos="fade-up" data-aos-duration="3000" v-for="item in productNew " :key="item.id" class="men_fashion">
-			 
-			<nuxt-link :to="{ path: `/detail/${item.slug}`}">
-			<img  :src="item.images"></nuxt-link>
-			<div v-if="item.discount !== null "  class="discount">
-				 <span v-if="item.discount == null">
-			 </span>
-			  <span style="color:red;font-weight:600" v-else>
-				 {{item.discount}}%
-				 <strong class="discount1" style="color:white;font-size:0.8rem">GIẢM</strong>
-			 </span>
-			</div>
-			<!-- <span style="padding:10px">{{item.name}}</span><br> -->
-			 <div class="description1">
-				
-				<span >{{item.name}}</span><br>
-
-			 </div>
-			 <div class="price">
-					<span v-if="item.sale_price !== item.price" class="price__product"> {{item.price.toLocaleString('it-IT')}}đ</span>
-					<span  style="color: red;"  v-else>{{item.sale_price.toLocaleString('it-IT')}}đ</span>
-					<span  style="color: red;"  v-if="item.sale_price !== item.price ">
-						{{item.sale_price.toLocaleString('it-IT')}}đ
-					</span>
+						</div>
+						<div class="price">
+							<span v-if="item.sale_price !== item.price" class="price__product"> {{item.price.toLocaleString('it-IT')}}đ</span>
+							<span  style="color: red;"  v-else>{{item.sale_price.toLocaleString('it-IT')}}đ</span>
+							<span  style="color: red;"  v-if="item.sale_price !== item.price ">
+								{{item.sale_price.toLocaleString('it-IT')}}đ
+							</span>
+						</div>
+					</div>
 				</div>
-			<div>
-			
-			</div>
-		
 
+			</el-tab-pane>
 
-		 </div>
+			<el-tab-pane label="Sản Phẩm Bán Chạy Nhất" name="second">
+				<div class="container main">
+					<div  data-aos="fade-up" data-aos-duration="3000" v-for="item in productBestseller " :key="item.id" class="men_fashion">
+						<nuxt-link :to="{ path: `/detail/${item.slug}`}">
+							<img  :src="item.images">
+						</nuxt-link>
+						
+						<div v-if="item.discount !== null "  class="discount">
+							<span v-if="item.discount == null">
+							</span>
+							<span style="color:red;font-weight:600" v-else>
+								{{item.discount}}%
+								<strong class="discount1" style="color:white;font-size:0.8rem">GIẢM</strong>
+							</span>
+						</div>
+						
+						<div class="description1">
+							<span >{{item.name}}</span><br>
+						</div>
 
-	 </div>
-
-	</el-tab-pane>
-    <el-tab-pane label="Sản Phẩm Bán Chạy Nhất" name="second">
-
-						  	 <div class="container main">
-		 <div  data-aos="fade-up" data-aos-duration="3000" v-for="item in productBestseller " :key="item.id" class="men_fashion">
-			 
-			<nuxt-link :to="{ path: `/detail/${item.slug}`}">
-			<img  :src="item.images"></nuxt-link>
-			<div v-if="item.discount !== null "  class="discount">
-				 <span v-if="item.discount == null">
-			 </span>
-			  <span style="color:red;font-weight:600" v-else>
-				 {{item.discount}}%
-				 <strong class="discount1" style="color:white;font-size:0.8rem">GIẢM</strong>
-			 </span>
-			</div>
-			<!-- <span style="padding:10px">{{item.name}}</span><br> -->
-			 <div class="description1">
-				
-				<span >{{item.name}}</span><br>
-
-			 </div>
-			 <div class="price">
-					<span v-if="item.sale_price !== item.price" class="price__product"> {{item.price.toLocaleString('it-IT')}}đ</span>
-					<span  style="color: red;"  v-else>{{item.sale_price.toLocaleString('it-IT')}}đ</span>
-					<span  style="color: red;"  v-if="item.sale_price !== item.price ">
-						{{item.sale_price.toLocaleString('it-IT')}}đ
-					</span>
+						<div class="price">
+							<span v-if="item.sale_price !== item.price" class="price__product"> {{item.price.toLocaleString('it-IT')}}đ</span>
+							<span  style="color: red;"  v-else>{{item.sale_price.toLocaleString('it-IT')}}đ</span>
+							<span  style="color: red;"  v-if="item.sale_price !== item.price ">
+								{{item.sale_price.toLocaleString('it-IT')}}đ
+							</span>
+						</div>
+					</div>
 				</div>
-			<div>
-			
-			</div>
-		
-
-
-		 </div>
-
-	 </div>
-
-	</el-tab-pane>
-  
-  </el-tabs>
-
-	 
-  </div>
+			</el-tab-pane>
+ 		 </el-tabs>
+ 	</div>
 </template>
 
 <script>
@@ -92,7 +72,7 @@ import { mapState } from 'vuex'
 export default {
 	data(){
 		return{
-			 activeName: 'first'
+			activeName: 'first'
 		}
 	},
 	methods:{
@@ -100,7 +80,7 @@ export default {
 			this.$store.dispatch('productNewBestseller/productNew').then((res) =>{
 			
 			})
-				this.$store.dispatch('productNewBestseller/producBestseller').then((res) =>{
+			this.$store.dispatch('productNewBestseller/producBestseller').then((res) =>{
 			
 			})
 			
@@ -122,10 +102,12 @@ export default {
 
 <style>
 .main{
-display: flex;
-  flex-wrap: wrap;
-  margin-top: 40px;
-margin-bottom: 40px;
+	
+	display: flex;
+ 	flex-wrap: wrap;
+	margin-top: 40px;
+	margin-bottom: 40px;
+	justify-content: center;
 }
 .el-tabs__nav-scroll{
 	display: flex;
@@ -133,18 +115,13 @@ margin-bottom: 40px;
     margin-top: 30px;
 }
 .discount1{
-
 	position: absolute;
 	top:20px;
 	left: 0px;
 }
 .men_fashion {
-
 	position: relative;
 	background-color: white;
-
-	
-	
 	width: 205px;
 	margin: 10px;
 	cursor: pointer;
@@ -165,17 +142,15 @@ margin-bottom: 40px;
 .description1{
 	padding: 10px 10px 0;
 	word-wrap: break-word;
-	 height: 23px;  
-	 overflow: hidden;
-	 display: block;
-	 display: -webkit-box;
-	 -webkit-box-orient:vertical;
-	 -webkit-line-clamp: 2;
+	height: 23px;  
+	overflow: hidden;
+	display: block;
+	display: -webkit-box;
+	-webkit-box-orient:vertical;
+	-webkit-line-clamp: 2;
 
-	
 }
 .price__product{
-	
 	text-decoration-line:line-through
 }
 .discount{
@@ -186,8 +161,6 @@ margin-bottom: 40px;
 	position: absolute;
 	right: 0;
 	top:0;
-
-	
 }
 .discount::after{
 	content: '';
@@ -200,7 +173,5 @@ margin-bottom: 40px;
 }
 .price{
 	display: flex;
-
-
 }
 </style>

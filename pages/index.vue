@@ -1,5 +1,6 @@
 <template>
   <div >
+	 
 	 <!-- <div>
 		 <ContentTopbar/>
 	 </div> -->
@@ -84,9 +85,9 @@
 		 
 		 
 	 </div>
-	 <div class="zalo-chat-widget" data-oaid="1834753581738813657" data-welcome-message="Rất vui khi được hỗ trợ bạn!" data-autopopup="0" data-width="350" data-height="420"></div>
-
-	<script src="https://sp.zalo.me/plugins/sdk.js"></script>
+	 
+ <div class="zalo-chat-widget" data-oaid="1834753581738813657" data-welcome-message="Rất vui khi được hỗ trợ bạn!" data-autopopup="0" data-width="350" data-height="420"></div>
+	<script  src="https://sp.zalo.me/plugins/sdk.js"></script>
   </div>
   
 </template>
@@ -105,29 +106,29 @@ export default {
 		return{
 				comments:[
 					{
-							title:'Một chiều cuối mùa thu, ngồi cafe 1 mình nơi ngõ nhỏ, tôi bỗng thoáng trông thấy một bóng hình thân quen lướt qua mặ',
+						title:'Giá cả rất hợp lý, kiểu dáng sản phẩm phong phú phù hợp với nhiều lứa tuổi, chất lương tốt , thương hiệu uy tín nhất việt nam :)) ',
 						name:'Hiệu', 
 						hihi:'CEO ThemeFTC'
 					},
 					{
-						title:'sdfsdfsdfsdfsdfsdfs',
+						title:'Giá cả rất hợp lý, kiểu dáng sản phẩm phong phú phù hợp với nhiều lứa tuổi, chất lương tốt , thương hiệu uy tín nhất việt nam :)) ',
 						name:'Hiệu',
 						hihi:'CEO ThemeFTC'
 					},
 					{
-						title:'sdfsdfsdfsdfsdfsdfs',
-						name:'Hiệu1',
+						title:'Giá cả rất hợp lý, kiểu dáng sản phẩm phong phú phù hợp với nhiều lứa tuổi, chất lương tốt , thương hiệu uy tín nhất việt nam :)) ',
+						name:'Hiệu',
 						hihi:'CEO ThemeFTC'
 					},
 					{
-						title:'Một chiều cuối mùa thu, ngồi ăn nướng cùng bạn nơi ngõ nhỏ, tôi bỗng thoáng trông thấy một bóng hình lạ mà quen tôi nướng thịt cho nàng..!!! < LTL 3 ',
-						name:'Hiệu2',
+						title:'Giá cả rất hợp lý, kiểu dáng sản phẩm phong phú phù hợp với nhiều lứa tuổi, chất lương tốt , thương hiệu uy tín nhất việt nam :)) ',
+						name:'Hiệu',
 						hihi:'CEO ThemeFTC'
 						
 					},
 					{
-						title:'sdfsdfsdfsdfsdfsdfs',
-						name:'Hiệu3',
+						title:'Giá cả rất hợp lý, kiểu dáng sản phẩm phong phú phù hợp với nhiều lứa tuổi, chất lương tốt , thương hiệu uy tín nhất việt nam :)) ',
+						name:'Hiệu',
 						hihi:'CEO ThemeFTC'
 						
 					},
@@ -139,7 +140,35 @@ export default {
 					"speed": 500,
 					"slidesToShow": 3,
 					"slidesToScroll": 1,
-					"swipeToSlide": true
+					"swipeToSlide": true,
+					responsive: [
+						{
+						breakpoint: 1024,
+						settings: {
+							slidesToShow: 1,
+							slidesToScroll: 1,
+							infinite: true,
+							dots: true,
+							speed:500,
+							swipeToSlide:true,
+							initialSlide:0
+						}
+						},
+						{
+						breakpoint: 600,
+						settings: {
+							slidesToShow: 2,
+							slidesToScroll: 2
+						}
+						},
+						{
+						breakpoint: 480,
+						settings: {
+							slidesToShow: 1,
+							slidesToScroll: 1
+						}
+						}
+					]
 				}
 		}
 	},
@@ -282,36 +311,24 @@ export default {
 	border-style:solid;
 	border-color: white transparent white transparent;
 }
-.decorative{
-	display: flex;
-	line-height: 19px;
+@media (max-width:1024px){
+   
+
+    .height_slick{
+        max-width: 900px;
+    }
+	.box-card{
+		    padding: 0;
+    margin: 1px 13px 30px;
+    width: 273px;
+    height: 218px;
+	}
+	th.is-leaf{
+	text-align: center;
 }
-.icon-left{
-	display: flex;
-	align-items: center;
-	margin-right: 10px;
+.el-table td{
+	text-align: center;
 }
-.icon-right{
-	display: flex;
-	align-items: center;
-	margin-left: 10px;
 }
-.icon-left::before{
-	content: "";
-    background-color:white;
-    display: inline-block;
-    height: 1px;
-    width: 70px;
-	
-}
-.icon-center::before{
-	content:url(~/static/images/test_v3.png)
-}
-.icon-right::before{
-	content: "";
-    background-color: white;
-    display: inline-block;
-    height: 1px;
-    width: 70px;
-}
+
 </style>

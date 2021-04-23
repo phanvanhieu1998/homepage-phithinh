@@ -1,30 +1,27 @@
 <template>
-  <div >
-	  		
-		<el-carousel  height="800px">
-			 <el-carousel-item  v-for="(item, index) in  listSliders" :key="item.id">
+ 	<div class="carousel">
+		<el-carousel height="800px" >
+			<el-carousel-item  v-for="(item, index) in  listSliders" :key="item.id">
 				<div class="container">
-					 <div class="slider" v-if="index==0">
-					<div class=" slider__content ">
-						<h2 class="ml9">
-							<span class="text-wrapper ">
-								<span style="color:white" class="letters">THỜI TRANG NỮ 2021</span>
-							</span>
-						</h2>
-					 	<p data-aos="fade-up"  data-aos-duration="3000">CÓ THIẾT KẾ MỚI </p>
-						  <el-button data-aos="zoom-in"  data-aos-duration="3000" style="margin-top:20px" type="primary" >Mua Ngay</el-button>
-						
-					</div>
-				 </div>
-
-				  <div class="slider" v-if="index==1">
-					<div  class="slider__content">
-						<span data-aos-duration="3000" style="margin-left:10px">Cá Tính, Trẻ Trung 2021</span>
+					<div class="slider" v-if="index==0">
+						<div class=" slider__content ">
+							<h2 class="ml9">
+								<span class="text-wrapper ">
+									<span style="color:white" class="letters">THỜI TRANG NỮ 2021</span>
+								</span>
+							</h2>
+							<p data-aos="fade-up"  data-aos-duration="3000">CÓ THIẾT KẾ MỚI </p>
+							<el-button data-aos="zoom-in"  data-aos-duration="3000" style="margin-top:20px" type="primary" >Mua Ngay</el-button>
 							
-								
-						  <el-button data-aos="fade-down"  data-aos-duration="3000" style="margin-top:20px" type="primary" round>Mua Ngay</el-button>
+						</div>
 					</div>
-				 </div>
+
+					<div class="slider" v-if="index==1">
+						<div  class="slider__content">
+							<span data-aos-duration="3000" style="margin-left:10px">Cá Tính, Trẻ Trung 2021</span>
+							<el-button data-aos="fade-down"  data-aos-duration="3000" style="margin-top:20px" type="primary" round>Mua Ngay</el-button>
+						</div>
+					</div>
 				</div>
 
 			   <el-image 
@@ -32,14 +29,12 @@
 					:src="item.images" 
 					>
 					
-					</el-image>
+				</el-image>
 				
 			</el-carousel-item> 
  		</el-carousel>
-
-	
 		 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script> 
-  </div>
+  	</div>
   
 </template>
 
@@ -69,10 +64,10 @@ export default {
 	mounted(){
 			this.loadData()
 
- setInterval(() => {
+ 	setInterval(() => {
 	 var textWrapper = document.querySelector('.ml9 .letters');
-	 if(textWrapper !== null){
-		 textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+		if(textWrapper !== null){
+		textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
 			
 		anime.timeline({loop: true})
 		.add({
@@ -101,8 +96,9 @@ export default {
 <style>
 .slider{
 	position: relative;
-	
-
+}
+.carousel{
+	height: 800px;
 }
  .slider__content{
 	position: absolute;
@@ -110,26 +106,11 @@ export default {
 	right: 0;
 	z-index: 1;
 	width: 500px;
-
-	
-
 } 
-
-/* .slider__content:before, .slider__content:after {
-    content: '';
-    display: inline-block;
-    height: 1px;
-    width: 185px;
-    background-color: #444;
-} */
-
-
 .slider__content p{
 	color: white;
 	font-size: 20px;
 	margin: 0;
-	
-	
 }
 .ml9 {
   position: relative;

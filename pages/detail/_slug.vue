@@ -1,6 +1,6 @@
 <template>
   	<div class="container">
-		<el-breadcrumb separator-class="el-icon-arrow-right">
+		<el-breadcrumb style="padding-top:30px" separator-class="el-icon-arrow-right">
 			<el-breadcrumb-item :to="{ path: '/' }">Trang chủ</el-breadcrumb-item>
 			
 			<el-breadcrumb-item>Chi tiết sản phẩm</el-breadcrumb-item>
@@ -40,9 +40,9 @@
 
 			</div>
 
-		  	<div >
+		  	<div style="margin-left:50px" >
 				<div>
-					<p>{{detail.description}}</p>
+					<p>{{detail.name}}</p>
 					
 					<span  v-if="detail.sale_price" >{{detail.sale_price.toLocaleString('it-IT')}}đ</span>
 				
@@ -76,7 +76,7 @@
 						<el-input-number   v-model="dataProduct.num "  :min="1" :max="detail.amount"></el-input-number>
 						<span  style="padding-left:30px">Sản phẩm có sẵn {{detail.amount}}</span>
 					</template><br>
-						<el-button  @click="addToCart('dataProduct')" type="primary" >Thêm vào giỏ hàng</el-button>
+						<el-button style="margin-top:30px" @click="addToCart('dataProduct')" type="primary" >Thêm vào giỏ hàng</el-button>
 				</div>
 			</div>
 
@@ -122,7 +122,7 @@ export default {
 	methods:{
 		loadData(){
 			this.loading = true
-			this.$store.dispatch('detail/detail',this.slug).then((res)=>{
+			this.$store.dispatch('detail/detail',this.sluggg).then((res)=>{
 				//  console.log(res)
 				this.loading = false
 			})
@@ -132,6 +132,16 @@ export default {
 			
 			this.$refs[formName].validate((valid) => {
           if (valid) {
+			  delete this.detail.category
+			  delete this.detail.summary
+			  delete this.detail.description
+			  delete this.detail.brand
+			  delete this.detail.supplier
+			  delete this.detail.meta_title
+			  delete this.detail.meta_description
+			  delete this.detail.colors
+			  delete this.detail.sizes
+
             	this.$store.dispatch('detail/addToCart',{
 				product: this.detail,
 				quantity : this.dataProduct.num,
@@ -167,7 +177,7 @@ export default {
 		 ...mapState({
 		 	detail: state => state.detail.detail
 		 }),
-		slug(){
+		sluggg(){
 			return this.$route.params.slug
 		},
 		

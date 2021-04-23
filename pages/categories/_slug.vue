@@ -1,49 +1,36 @@
 <template>
-  <div  v-loading="loading">
-	<BannerCategory :valueSlug="slug"/>
-	 <div class="container main" v-if="productByCategory">
-		 <div  data-aos="fade-up-right" data-aos-duration="3000" v-for="item in productByCategory " :key="item.id" class="men_fashion">
-			 
-			<nuxt-link :to="{ path: `/detail/${item.slug}`}">
-			<img  :src="item.images[0]"></nuxt-link>
-			<div v-if="item.discount !== null "  class="discount">
-				 <span v-if="item.discount == null">
-			 </span>
-			  <span style="color:red;font-weight:600" v-else>
-				 {{item.discount}}%
-				 <strong class="discount1" style="color:white;font-size:0.8rem;padding:0">GIẢM</strong>
-			 </span>
-			</div>
-			<!-- <span style="padding:10px">{{item.name}}</span><br> -->
-			 <div class="description1">
-				
-				<span >{{item.name}}</span><br>
+  	<div  v-loading="loading">
+		<BannerCategory :valueSlug="slug"/>
+		<div class="container main" v-if="productByCategory">
+			<div  data-aos="fade-up-right" data-aos-duration="3000" v-for="item in productByCategory " :key="item.id" class="men_fashion">
+				<nuxt-link :to="{ path: `/detail/${item.slug}`}">
+					<img  :src="item.images[0]">
+				</nuxt-link>
 
-			 </div>
-			 <div class="price">
+				<div v-if="item.discount !== null "  class="discount">
+					<span v-if="item.discount == null">
+					</span>
+					<span style="color:red;font-weight:600" v-else>
+						{{item.discount}}%
+						<strong class="discount1" style="color:white;font-size:0.8rem;padding:0">GIẢM</strong>
+					</span>
+				</div>
+			
+				<div class="description1">
+					<span >{{item.name}}</span><br>
+				</div>
+
+				<div class="price">
 					<span v-if="item.sale_price !== item.price" class="price__product"> {{item.price.toLocaleString('it-IT')}}đ</span>
 					<span  style="color: red;"  v-else>{{item.price.toLocaleString('it-IT')}}đ</span>
 					<span  style="color: red;"  v-if="item.sale_price !== item.price ">
 						{{item.sale_price.toLocaleString('it-IT')}}đ
 					</span>
 				</div>
-			<div>
-			
+
+
 			</div>
-			 <div class="hicc">
-				<el-rate
-					v-model="value"
-					disabled
-					show-score
-					text-color="#ff9900"
-					score-template="{value} Sao">
-					</el-rate>
-			 </div>
-
-
-		 </div>
-
-	 </div>
+		</div>
   </div>
 </template>
 <script>
@@ -52,9 +39,9 @@ import { mapState } from'vuex'
 export default {
 	data(){
 		return{
-			value: null,
+	
 			loading:false,
-			value: 3.7
+		
 		}
 	},
 
@@ -98,6 +85,7 @@ display: flex;
   flex-wrap: wrap;
   margin-top: 40px;
 margin-bottom: 40px;
+justify-content: center;
 }
 .men_fashion {
 
@@ -165,8 +153,8 @@ margin-bottom: 40px;
 	border-style:solid;
 	border-color: transparent rgba(255,212,36,.9) transparent rgba(255,212,36,.9);
 }
-.price{
-	display: flex;
+.price {
+	
 	text-align: center;
 
 

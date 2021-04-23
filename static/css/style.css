@@ -19,7 +19,38 @@ body a{
 	
 
 }
-
+.decorative{
+	display: flex;
+	line-height: 19px;
+}
+.icon-left{
+	display: flex;
+	align-items: center;
+	margin-right: 10px;
+}
+.icon-right{
+	display: flex;
+	align-items: center;
+	margin-left: 10px;
+}
+.icon-left::before{
+	content: "";
+    background-color:white;
+    display: inline-block;
+    height: 1px;
+    width: 70px;
+	
+}
+.icon-center::before{
+	content:url(~/static/images/test_v3.png)
+}
+.icon-right::before{
+	content: "";
+    background-color: white;
+    display: inline-block;
+    height: 1px;
+    width: 70px;
+}
 
 
 /* 
