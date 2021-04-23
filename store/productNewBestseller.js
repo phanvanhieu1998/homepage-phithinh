@@ -40,7 +40,7 @@ export const actions = {
             // 	limit:state.limit
             //   }
 
-            axios.get('https://api.meiboutiques.work/v1/newest-bestsellers')
+            axios.get('https://api.phanhieu.tokyo/v1/newest-bestsellers')
                 .then((res) => {
                     commit('SET_PRODUCT_BESTSELLER', res.data.data.bestsellers)
 
