@@ -4,7 +4,7 @@
 			<el-tab-pane   label="Sản Phẩm Mới Nhất" name="first">
 				<div class="container main">
 						<el-row :gutter="20" >
-					<el-col data-aos="zoom-in" data-aos-duration="3000"  :md="6" v-for="item in productNew " :key="item.id" class="men_fashion">
+					<el-col data-aos="zoom-in" data-aos-duration="3000" :sm="12"   :md="6" v-for="item in productNew " :key="item.id" class="men_fashion">
 						<nuxt-link :to="{ path: `/detail/${item.slug}`}">
 							<img  :src="item.images">
 						</nuxt-link>
@@ -39,7 +39,7 @@
 			<el-tab-pane label="Sản Phẩm Bán Chạy Nhất" name="second">
 				<div class="container main">
 					<el-row :gutter="20" >
-					<el-col data-aos="zoom-in" data-aos-duration="3000"  :md="6" v-for="item in productBestseller " :key="item.id" class="men_fashion">
+					<el-col data-aos="zoom-in" data-aos-duration="3000" :sm="12"  :md="6" v-for="item in productBestseller " :key="item.id" class="men_fashion">
 						<nuxt-link :to="{ path: `/detail/${item.slug}`}">
 							<img  :src="item.images">
 						</nuxt-link>
@@ -113,5 +113,6 @@ export default {
     justify-content: center;
     margin-top: 30px;
 }
+
 
 </style>

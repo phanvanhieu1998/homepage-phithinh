@@ -60,11 +60,13 @@ export default {
 	methods:{
 			set_page(page){
         	this.$store.commit('search/SET_PAGE',page)
+			this.$store.dispatch('search/listSearch')
          
     }
 	},
 
 	computed:{
+	
 		...mapState({
 			listSearch:state => state.search.listSearch,
 				totalData : state => state.search.totalData,
@@ -75,6 +77,7 @@ export default {
 	
 		
 	},
+
 
 }
 

@@ -60,11 +60,7 @@ export default {
 
 	mounted(){
 		this.loadData()
-		console.log(this.productByCategory)
-		console.log(this.slug) 
 		
-	
-
 	},
 	computed:{
 		...mapState({

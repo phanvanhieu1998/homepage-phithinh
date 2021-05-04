@@ -27,7 +27,7 @@
 			<!-- <div  data-aos="zoom-in" data-aos-duration="3000"  > -->
 				
 				<el-row :gutter="20" >
-					<el-col data-aos="zoom-in" data-aos-duration="3000"  :md="6" v-for="item in listProduct " :key="item.id" class="men_fashion">
+					<el-col data-aos="zoom-in" data-aos-duration="3000" :sm="12"  :md="6" v-for="item in listProduct " :key="item.id" class="men_fashion">
 						<nuxt-link :to="{ path: `/detail/${item.slug}`}">
 							<img  :src="item.images">
 						</nuxt-link>
@@ -53,13 +53,7 @@
 								</span>
 						</div>
 
-						<div class="hicc">
-							<el-rate
-								v-model="value"
-								:texts="['oops','disappointed', 'normal', 'good', 'great']"
-								show-text>
-							</el-rate>
-						</div>
+			
 					</el-col>
 				</el-row>
 	
@@ -81,7 +75,7 @@ import { mapState } from 'vuex'
 export default {
 	data(){
 		return{
-	value: null,
+
 			loading:false
 		}
 	},

@@ -81,7 +81,7 @@ export default {
 	color: white;;
 	
 	bottom:0;
-	height: auto;
+	height: 300px;
 	padding-bottom:30px ;
 }
 .footer a{

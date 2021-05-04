@@ -4,7 +4,8 @@ export const state = () => ({
     listSearch: [],
     limit: 4,
     page: 1,
-    search_text: ''
+    search_text: '',
+    totalData: 0
 
 })
 
@@ -20,16 +21,10 @@ export const getters = {
 }
 
 export const actions = {
-    listSearch({ state, commit }, data) {
+    listSearch({ state, commit }) {
         return new Promise((resolve, reject) => {
-            let data1 = {
-                page: state.page,
-                limit: state.limit
-            }
 
-
-
-            axios.get(`https://api.phanhieu.tokyo/v1/search?limit=${data1.limit}&q=${data.q}&page=${data1.page}`)
+            axios.get(`https://api.phanhieu.tokyo/v1/search?limit=${state.limit}&q=${state.search_text}&page=${state.page}`)
                 .then((res) => {
                     commit('SET_SEARCH', res.data.data.result)
                     commit('SET_TOTALDATA', res.data.data.meta.total)

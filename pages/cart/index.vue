@@ -1,7 +1,7 @@
 <template>
   <div class="container">
  
-    <el-table :data="numberProduct" style="width: 100%">
+    <el-table :data="cart" style="width: 100%">
       <el-table-column label="Sản Phẩm" width="180px">
         <template slot-scope="scope" v-if="cart">
           <el-image

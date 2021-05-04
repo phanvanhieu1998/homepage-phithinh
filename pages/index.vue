@@ -50,7 +50,7 @@
 				
 					<div class="height_slick">
 							<div class="container slick1">
-						<VueSlickCarousel v-bind="settings" :arrows="true" :dots="true">
+						<VueSlickCarousel v-bind="settings" :arrows="true"  :dots="true">
 					<div v-for="(item, index) in comments" :key="index">
 						<el-card class="box-card">
 							<div class="box-card-content">
@@ -147,29 +147,14 @@ export default {
 						settings: {
 							slidesToShow: 1,
 							slidesToScroll: 1,
-							infinite: true,
-							dots: true,
-							speed:500,
-							swipeToSlide:true,
-							initialSlide:0
-						}
+						
+							
 						},
-						{
-						breakpoint: 600,
-						settings: {
-							slidesToShow: 2,
-							slidesToScroll: 2
-						}
 						},
-						{
-						breakpoint: 480,
-						settings: {
-							slidesToShow: 1,
-							slidesToScroll: 1
-						}
-						}
 					]
-				}
+		
+				},
+				
 		}
 	},
 
@@ -179,10 +164,14 @@ export default {
 		BestSellers,
 		AllProducts
 	}
+	
 }
 </script>
 
 <style>
+* {
+    box-sizing: border-box;
+}
 .banner-test{
 	position: relative;
 	background-image: url(https://demo.themeftc.com/osapa//wp-content/uploads/2017/11/banner-tes.jpg?id=2138)!important;
@@ -198,18 +187,19 @@ export default {
 	width: 100%;
 }
 .banner-test h5{
+
 	margin: 0;
 	font-size: 30px;
 }
 .banner-test .all__product__hot__trend{
 	margin: 20px 46% 20px;
 }
-.box-card{
+ .box-card{
 	padding: 0;
 	 margin: 1px 13px 30px; 
 	width: 350px;
 	height: 250px;
-}
+} 
 .slick1 .slick-prev::before {
 	position: absolute;
 
@@ -318,9 +308,9 @@ export default {
         max-width: 900px;
     }
 	.box-card{
-		    padding: 0;
+	 padding: 0;
     margin: 1px 13px 30px;
-    width: 273px;
+    width:	275px;
     height: 218px;
 	}
 	th.is-leaf{
@@ -330,5 +320,6 @@ export default {
 	text-align: center;
 }
 }
+
 
 </style>

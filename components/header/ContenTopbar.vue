@@ -95,10 +95,7 @@ export default {
 				this.$router.push({path:path})
 		},
 		loadData1(){
- 			this.$store.dispatch('search/listSearch',{
-				 limit:10,
-				 q:this.input
-			 })
+ 			this.$store.dispatch('search/listSearch')
 		},
 		submit(){
 			 this.$store.commit('search/SET_SEARCH_TEXT',this.input)
