@@ -76,6 +76,12 @@ export const mutations = {
         let cart = JSON.stringify(state.cart)
         localStorage.setItem('cart', cart)
     },
+    SET_DELETE_CHECKOUT: (state) => {
+        state.cart = []
+        let cart = JSON.stringify(state.cart)
+        localStorage.setItem('cart', cart)
+    }
+
 
 
 

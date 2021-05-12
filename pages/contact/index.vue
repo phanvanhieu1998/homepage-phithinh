@@ -150,18 +150,18 @@ h2{
 	position: absolute;
 	top:92px;
 	left: 40px;
-		font-size: 20px;
+	font-size: 20px;
 }
 .icon__contact1{
 	position: absolute;
-	top:34%;
+	top:33.5%;
 	left: 40px;
 	z-index: 1;
 		font-size: 20px;
 }
 .icon__contact2{
 	position: absolute;
-	top:49.5%;
+	top:49%;
 	left: 40px;
 	z-index: 1;
 	font-size: 20px;

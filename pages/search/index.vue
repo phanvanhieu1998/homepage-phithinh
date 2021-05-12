@@ -73,6 +73,7 @@ export default {
           	page: state =>state.search.page,
           	limit : state =>state.search.limit,
 			  	search_text:state => state.search.search_text
+				  
 		}),
 	
 		

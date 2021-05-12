@@ -1,6 +1,6 @@
 <template>
   <div class="container">
- 
+	  {{cart}}
     <el-table :data="cart" style="width: 100%">
       <el-table-column label="Sản Phẩm" width="180px">
         <template slot-scope="scope" v-if="cart">
@@ -66,7 +66,7 @@
       <strong style="margin-right: 20px"
         >Tổng tiền hàng {{ cartTotalPrice.toLocaleString("it-IT") }}đ</strong
       >
-      <el-button type="success">Thanh Toán</el-button>
+      <el-button @click="checkout" type="success">Thanh Toán</el-button>
     </div>
   </div>
 </template>
@@ -117,6 +117,10 @@ export default {
         );
       }
     },
+	checkout(){
+		this.$router.push('./cart/CheckOut')
+		
+	}
   },
 
   mounted() {
