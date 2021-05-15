@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-	  {{cart}}
     <el-table :data="cart" style="width: 100%">
       <el-table-column label="Sản Phẩm" width="180px">
         <template slot-scope="scope" v-if="cart">
@@ -38,7 +37,7 @@
           <span style="margin-left: 10px">{{ scope.row.sizes }}</span>
         </template>
       </el-table-column>
-	  
+
       <el-table-column label="Màu Sắc" width="180px">
         <template slot-scope="scope">
           <span style="margin-left: 10px">{{ scope.row.colors }}</span>
@@ -77,23 +76,23 @@ import { mapGetters } from "vuex";
 export default {
   data() {
     return {
-      numberProduct: [],
+      numberProduct: []
     };
   },
   computed: {
     ...mapState({
-      cart: (state) => state.detail.cart,
-      detail: (state) => state.detail.detail,
-      message: (state) => state.detail.haha,
+      cart: state => state.detail.cart,
+      detail: state => state.detail.detail,
+      message: state => state.detail.haha
     }),
 
     ...mapGetters({
-      cartTotalPrice: "detail/cartTotalPrice",
-    }),
+      cartTotalPrice: "detail/cartTotalPrice"
+    })
   },
   methods: {
     clearProduct(row) {
-      this.$store.dispatch("detail/deleteProduct", row).then((res) => {
+      this.$store.dispatch("detail/deleteProduct", row).then(res => {
         this.numberProduct = this.cart;
       });
     },
@@ -102,7 +101,7 @@ export default {
         id: row.product.id,
         quantity: row.quantity,
         sizes: row.sizes,
-        colors: row.colors,
+        colors: row.colors
       };
 
       this.$store.commit("detail/SET_QUANTITY", quantity);
@@ -117,16 +116,15 @@ export default {
         );
       }
     },
-	checkout(){
-		this.$router.push('./cart/CheckOut')
-		
-	}
+    checkout() {
+      this.$router.push("./cart/CheckOut");
+    }
   },
 
   mounted() {
     this.numberProduct = this.cart;
     this.local();
-  },
+  }
 };
 </script>
 
@@ -144,8 +142,3 @@ th.is-leaf {
   text-align: center;
 }
 </style>
-
-
-
-
-
