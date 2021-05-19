@@ -111,7 +111,14 @@ export default {
       // this.ruleForm.phone = parseInt(this.ruleForm.phone)
       this.$store.dispatch("checkout/checkout", this.ruleForm).then(res => {
         this.$store.commit("detail/SET_DELETE_CHECKOUT");
+        this.open1();
         this.$router.push("./Complate");
+      });
+    },
+    open1() {
+      this.$message({
+        message: "Đặt hàng thành công",
+        type: "success"
       });
     }
   },

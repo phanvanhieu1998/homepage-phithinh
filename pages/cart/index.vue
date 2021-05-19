@@ -116,8 +116,15 @@ export default {
         );
       }
     },
+    open1() {
+      this.$message({
+        message: "Thanh toán thành công",
+        type: "success"
+      });
+    },
     checkout() {
       this.$router.push("./cart/CheckOut");
+      this.open1();
     }
   },
 
