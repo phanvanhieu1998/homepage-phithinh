@@ -8,8 +8,6 @@
 
       <el-breadcrumb-item>Chi tiết sản phẩm</el-breadcrumb-item>
     </el-breadcrumb>
-    {{ this.$route.params.slug }}
-    {{ this.sluggg }}
 
     <div class="detail" v-loading="loading">
       <div style="margin-right:50px">
