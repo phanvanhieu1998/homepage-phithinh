@@ -139,6 +139,7 @@ export default {
         this.loading = false;
       });
     },
+
     addToCart(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {

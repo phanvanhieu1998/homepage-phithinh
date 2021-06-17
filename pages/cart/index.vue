@@ -124,7 +124,7 @@ export default {
     },
     checkout() {
       this.$router.push("./cart/CheckOut");
-      this.open1();
+    
     }
   },
 

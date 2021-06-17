@@ -1,5 +1,6 @@
 import axios from 'axios'
 
+
 export const state = () => ({
     // listProduct:[],
     // limit:10,
@@ -29,5 +30,6 @@ export const actions = {
                     reject(error)
                 })
         })
-    }
+    },
+
 }
