@@ -1,211 +1,247 @@
 body ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 body a {
-    text-decoration: none;
-    color: #444444;
+  text-decoration: none;
+  color: #444444;
 }
 
 .container {
-    max-width: 1140px;
-    margin: 0 auto;
+  max-width: 1140px;
+  margin: 0 auto;
 }
 
 .decorative {
-    display: flex;
-    line-height: 19px;
+  display: flex;
+  line-height: 19px;
 }
 
 .icon-left {
-    display: flex;
-    align-items: center;
-    margin-right: 10px;
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
 }
 
 .icon-right {
-    display: flex;
-    align-items: center;
-    margin-left: 10px;
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
 }
 
 .icon-left::before {
-    content: "";
-    background-color: white;
-    display: inline-block;
-    height: 1px;
-    width: 70px;
+  content: "";
+  background-color: white;
+  display: inline-block;
+  height: 1px;
+  width: 70px;
 }
 
 .icon-center::before {
-    content: url(~/static/images/test_v3.png)
+  content: url(~/static/images/test_v3.png);
 }
 
 .icon-right::before {
-    content: "";
-    background-color: white;
-    display: inline-block;
-    height: 1px;
-    width: 70px;
+  content: "";
+  background-color: white;
+  display: inline-block;
+  height: 1px;
+  width: 70px;
 }
-
 
 /* 
 	contenTopbar
  */
 
 .menu {
-    display: flex;
+  display: flex;
 }
 
 .menu__left {
-    line-height: 40px;
+  line-height: 40px;
 }
 
 .menu__left a {
-    margin-right: 15px;
+  margin-right: 15px;
 }
 
 .top_bar_line {
-    border-bottom: 1px solid #ebebeb;
+  border-bottom: 1px solid #ebebeb;
 }
 
 h1 {
-    text-align: center;
-    margin: 0;
+  text-align: center;
+  margin: 0;
 }
 
 .header__wrap__cart {
-    font-size: 20px;
-    display: flex;
-    justify-content: flex-end;
+  font-size: 20px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .header__wrap__cart span {
-    justify-content: space-around;
+  justify-content: space-around;
 }
 
 .header__wrap__cart i {
-    font-size: 25px;
+  font-size: 25px;
 }
 
 .nav__wrap__menu {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .nav__wrap__menu li {
-    padding: 20px 10px;
+  padding: 20px 10px;
 }
 
 .nav__wrap__menu a {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .close {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    color: #666;
-    font-size: 30px;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: #666;
+  font-size: 30px;
 }
-
 
 /*
 	product
 */
 
 .men_fashion {
-    padding-top: 20px;
+  padding-top: 20px;
 }
 
 .discount {
-    background-color: rgba(255, 212, 36, .9);
-    text-align: center;
-    width: 40px;
-    height: 36px;
-    position: absolute;
-    right: 10px;
-    top: 20px;
+  background-color: rgba(255, 212, 36, 0.9);
+  text-align: center;
+  width: 40px;
+  height: 36px;
+  position: absolute;
+  right: 10px;
+  top: 20px;
 }
 
 .men_fashion img {
-    background-color: white;
-    width: 100%;
-    margin: 0;
-    display: block;
-    height: 350px;
+  background-color: white;
+  width: 100%;
+  margin: 0;
+  display: block;
+  height: 350px;
 }
 
 .main {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  justify-content: center;
 }
 
 .show__pagination {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .men_fashion:hover {
-    transform: translateY(-1px);
+  transform: translateY(-1px);
 }
 
 .pagination {
-    text-align: center;
-    padding-bottom: 40px;
+  text-align: center;
+  padding-bottom: 40px;
 }
 
 .description1 {
-    text-align: center;
-    padding: 10px 10px 0;
-    word-wrap: break-word;
-    height: 33px;
-    overflow: hidden;
-    display: block;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    display: flex;
-    justify-content: center;
+  text-align: center;
+  padding: 10px 10px 0;
+  word-wrap: break-word;
+  height: 33px;
+  overflow: hidden;
+  display: block;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  display: flex;
+  justify-content: center;
 }
 
 .description1 span {
-    text-align: center;
+  text-align: center;
 }
 
 .price__product {
-    text-decoration-line: line-through;
-    margin-right: 10px;
+  text-decoration-line: line-through;
+  margin-right: 10px;
 }
 
 .discount::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-    border-width: 0 20px 6px;
-    border-style: solid;
-    border-color: transparent rgba(255, 212, 36, .9) transparent rgba(255, 212, 36, .9);
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  border-width: 0 20px 6px;
+  border-style: solid;
+  border-color: transparent rgba(255, 212, 36, 0.9) transparent
+    rgba(255, 212, 36, 0.9);
 }
 
 .price {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .allProduct {
-    position: relative;
-    display: flex;
-    margin-top: 50px;
-    justify-content: center;
+  position: relative;
+  display: flex;
+  margin-top: 50px;
+  justify-content: center;
 }
 
+.all__product__hot__trend {
+  display: flex;
+  justify-content: center;
+  background-color: red;
+  text-align: center;
+  width: 120px;
+  height: 34px;
+  position: absolute;
+  align-items: center;
+  top: 0;
+}
+
+.all__product__hot__trend::before {
+  content: "";
+  position: absolute;
+  left: -12px;
+  border-width: 17px 0px 17px 12px;
+  border-style: solid;
+  border-color: red transparent red transparent;
+}
+
+.all__product__hot__trend::after {
+  content: "";
+  position: absolute;
+  right: -12px;
+  border-width: 17px 12px 17px 0;
+  border-style: solid;
+  border-color: red transparent red transparent;
+}
+
+/* body {
+  height: 100vh;
+}
+.d-flex{
+  display: flex;
+  justify-content: center;
+}
 .all__product__hot__trend {
     display: flex;
     justify-content: center;
@@ -222,16 +258,16 @@ h1 {
     content: '';
     position: absolute;
     left: -12px;
-    border-width: 17px 0px 17px 12px;
+    border-width: 17px 12px 17px 0px;
     border-style: solid;
-    border-color: red transparent red transparent;
+    border-color: transparent red transparent transparent;
 }
 
 .all__product__hot__trend::after {
     content: '';
     position: absolute;
     right: -12px;
-    border-width: 17px 12px 17px 0;
+    border-width: 17px 0px 17px 12px;
     border-style: solid;
-    border-color: red transparent red transparent;
-}
+    border-color: transparent red transparent red;
+} */
